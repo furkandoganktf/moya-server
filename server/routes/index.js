@@ -11,10 +11,6 @@ var router = express.Router();
 dotenv.config();
 const secret_key = process.env.SECRET_KEY;
 
-wifi.init({
-  iface: null,
-});
-
 const db = r.db("Moya");
 
 router.post("/users/authenticate", async (req, res) => {
@@ -51,6 +47,47 @@ router.post("/users/authenticate", async (req, res) => {
   } catch (error) {
     print(error);
     res.status(400).send({ message: "Authentication failed." });
+  }
+});
+
+app.post("/users/register", function (req, res) {
+  try {
+    let name = req.body.name;
+    let surname = req.body.surname;
+    let username = req.body.username;
+    let password = req.body.password;
+    if (!username || !password) {
+      res.status(400).send({
+        message: "Username or Password can not be empty.",
+      });
+    } else {
+      db.table("users")
+        .filter(r.row("email").eq(username))
+        .count()
+        .eq(1)
+        .run(conn, function (err, result) {
+          if (err) throw err;
+          if (result) {
+            res.status(400).send({ message: "This email is already in use." });
+          } else {
+            password = crypto.createHash("md5").update(req.body.password).digest("hex");
+            db.table("users")
+              .insert({
+                name: name,
+                surname: surname,
+                email: username,
+                password: password,
+              })
+              .run(conn, function (err) {
+                if (err) console.log(err);
+                res.status(200).send({ message: "User created succesfully." });
+              });
+          }
+        });
+    }
+  } catch (error) {
+    print(error);
+    res.status(400).send({ message: "Registration failed." });
   }
 });
 

@@ -6,7 +6,6 @@
 import app from "../app";
 import debugLib from "debug";
 import http from "http";
-import ioLib from "socket.io";
 import connectDB from "../helpers/dbConnection";
 const debug = debugLib("neurocess-server:server");
 
@@ -22,7 +21,6 @@ app.set("port", port);
  */
 
 var server = http.createServer(app);
-var io = ioLib(server);
 
 const listen = async () => {
   var conn = await connectDB();
