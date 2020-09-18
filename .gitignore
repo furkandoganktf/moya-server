@@ -1,0 +1,10 @@
+.vscode/
+rethinkdb_data/
+node_modules/
+.env
+__pycache__/
+build/
+.DS_Store
+.Rhistory
+mert/
+dist-server/

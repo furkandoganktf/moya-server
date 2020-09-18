@@ -1,2 +1,1 @@
-# Neurocess Server
 # moya-server
