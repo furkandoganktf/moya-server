@@ -11,7 +11,7 @@ var router = express.Router();
 dotenv.config();
 const secret_key = process.env.SECRET_KEY;
 
-const db = r.db("Moya");
+const db = r.db("moya");
 
 router.post("/users/authenticate", async (req, res) => {
   try {
@@ -50,7 +50,7 @@ router.post("/users/authenticate", async (req, res) => {
   }
 });
 
-app.post("/users/register", function (req, res) {
+router.post("/users/register", function (req, res) {
   try {
     let name = req.body.name;
     let surname = req.body.surname;
