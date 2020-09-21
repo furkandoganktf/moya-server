@@ -13,26 +13,25 @@ router.post("/", checkAuth, async (req, res) => {
   try {
     let user = req.userData.email;
     let name = req.body.name;
-    let supplier = req.body.supplier;
     await db
-      .table("products")
-      .filter(r.row("name").eq(name).and(r.row("supplier").eq(supplier)))
+      .table("brands")
+      .filter(r.row("name").eq(name))
       .count()
       .eq(1)
       .run(req.app._rdbConn, async (err, result) => {
         if (err) throw err;
         if (result) {
-          res.status(400).send({ message: "Bu ürün adı zaten kullanımda." });
+          res.status(400).send({ message: "Bu marka adı zaten kullanımda." });
         } else {
           await db
-            .table("products")
+            .table("brands")
             .insert(req.body)
             .run(req.app._rdbConn, async (err) => {
               if (err) throw err;
-              res.status(200).send({ message: "Ürün başarıyla oluşturuldu." });
+              res.status(200).send({ message: "Marka başarıyla oluşturuldu." });
               await db
                 .table("logs")
-                .insert({ email: user, log: name + " ürün eklendi!" })
+                .insert({ email: user, log: name + " markası eklendi!" })
                 .run(req.app._rdbConn);
             });
         }
@@ -45,68 +44,68 @@ router.post("/", checkAuth, async (req, res) => {
 
 router.get("/", checkAuth, async (req, res) => {
   try {
-    await db.table("products").run(req.app._rdbConn, async (err, cursor) => {
+    await db.table("brands").run(req.app._rdbConn, async (err, cursor) => {
       if (err) throw err;
-      cursor.toArray(async (err, products) => {
+      cursor.toArray(async (err, brands) => {
         if (err) throw err;
-        res.status(200).send({ products: products });
+        res.status(200).send({ brands: brands });
       });
     });
   } catch (error) {
     print(error);
-    res.status(400).send({ message: "Ürünler getirilemedi." });
+    res.status(400).send({ message: "Markalar getirilemedi." });
   }
 });
 
-router.put("/:productId", checkAuth, async (req, res) => {
+router.put("/:brandId", checkAuth, async (req, res) => {
   try {
     let user = req.userData.email;
-    var productId = req.params.productId;
+    var brandId = req.params.brandId;
     const name = req.body.name;
     if (!name) {
-      res.status(400).send({ message: "Ürün adı boş olamaz!" });
+      res.status(400).send({ message: "Marka adı boş olamaz!" });
     } else {
       await db
-        .table("products")
-        .get(productId)
+        .table("brands")
+        .get(brandId)
         .run(req.app._rdbConn, async (err, cursor) => {
           if (err) throw err;
           if (cursor.name !== name) {
             await db
-              .table("products")
+              .table("brands")
               .filter(r.row("name").eq(name))
               .count()
               .eq(1)
               .run(req.app._rdbConn, async (err, result) => {
                 if (err) throw err;
                 if (result) {
-                  res.status(400).send({ message: "Bu ürün zaten kullanımda." });
+                  res.status(400).send({ message: "Bu marka zaten kullanımda." });
                 } else {
                   await db
-                    .table("products")
-                    .get(productId)
+                    .table("brands")
+                    .get(brandId)
                     .update(req.body)
                     .run(req.app._rdbConn, async (err, cursor) => {
                       if (err) throw err;
-                      res.status(200).send({ message: "Ürün güncellendi" });
+                      res.status(200).send({ message: "Marka güncellendi" });
                       await db
                         .table("logs")
-                        .insert({ email: user, log: cursor.name + " ürünü güncellendi!" })
+                        .insert({ email: user, log: cursor.name + " markası güncellendi!" })
                         .run(req.app._rdbConn);
                     });
                 }
               });
           } else {
             await db
-              .table("products")
-              .get(productId)
+              .table("brands")
+              .get(brandId)
               .update(req.body)
               .run(req.app._rdbConn, async (err, cursor) => {
                 if (err) throw err;
-                res.status(200).send({ message: "Ürün güncellendi" });
+                res.status(200).send({ message: "Marka güncellendi" });
                 await db
                   .table("logs")
-                  .insert({ email: user, log: name + " ürünü güncellendi!" })
+                  .insert({ email: user, log: name + " markası güncellendi!" })
                   .run(req.app._rdbConn);
               });
           }
@@ -114,29 +113,29 @@ router.put("/:productId", checkAuth, async (req, res) => {
     }
   } catch (error) {
     print(error);
-    res.status(400).send({ message: "Ürün güncelleme başarısız." });
+    res.status(400).send({ message: "Marka güncelleme başarısız." });
   }
 });
 
-router.delete("/:productId", checkAuth, async (req, res) => {
+router.delete("/:brandId", checkAuth, async (req, res) => {
   try {
-    var productId = req.params.productId;
+    var brandId = req.params.brandId;
     let user = req.userData.email;
     await db
-      .table("products")
-      .get(productId)
+      .table("brands")
+      .get(brandId)
       .delete({ returnChanges: true })
       .run(req.app._rdbConn, async (err, cursor) => {
         if (err) throw err;
-        res.status(200).send({ message: "Ürün silindi" });
+        res.status(200).send({ message: "Marka silindi" });
         await db
           .table("logs")
-          .insert({ email: user, log: cursor.changes[0]["old_val"].name + " ürünü silindi!" })
+          .insert({ email: user, log: cursor.changes[0]["old_val"].name + " markası silindi!" })
           .run(req.app._rdbConn);
       });
   } catch (error) {
     print(error);
-    res.status(400).send({ message: "Ürün silme başarısız." });
+    res.status(400).send({ message: "Marka silme başarısız." });
   }
 });
 
