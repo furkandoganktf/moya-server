@@ -13,29 +13,17 @@ router.post("/", checkAuth, async (req, res) => {
   try {
     let user = req.userData.email;
     let name = req.body.name;
-    await db
-      .table("suppliers")
-      .filter(r.row("name").eq(name))
-      .count()
-      .eq(1)
-      .run(req.app._rdbConn, async (err, result) => {
-        if (err) throw err;
-        if (result) {
-          res.status(400).send({ message: "Bu tedarikçi adı zaten kullanımda." });
-        } else {
-          await db
-            .table("suppliers")
-            .insert(req.body)
-            .run(req.app._rdbConn, async (err) => {
-              if (err) throw err;
-              res.status(200).send({ message: "Tedarikçi başarıyla oluşturuldu." });
-              await db
-                .table("logs")
-                .insert({ email: user, log: name + " tedarikçisi eklendi!" })
-                .run(req.app._rdbConn);
-            });
-        }
-      });
+    let result = await db.table("suppliers").filter(r.row("name").eq(name)).count().eq(1).run(req.app._rdbConn);
+    if (result) {
+      res.status(400).send({ message: "Bu tedarikçi adı zaten kullanımda." });
+    } else {
+      await db.table("suppliers").insert(req.body).run(req.app._rdbConn);
+      res.status(200).send({ message: "Tedarikçi başarıyla oluşturuldu." });
+      await db
+        .table("logs")
+        .insert({ email: user, log: name + " tedarikçisi eklendi!" })
+        .run(req.app._rdbConn);
+    }
   } catch (error) {
     print(error);
     res.status(400).send({ message: "Kayıt başarısız." });
@@ -44,13 +32,9 @@ router.post("/", checkAuth, async (req, res) => {
 
 router.get("/", checkAuth, async (req, res) => {
   try {
-    await db.table("suppliers").run(req.app._rdbConn, async (err, cursor) => {
-      if (err) throw err;
-      cursor.toArray(async (err, suppliers) => {
-        if (err) throw err;
-        res.status(200).send({ suppliers: suppliers });
-      });
-    });
+    let cursor = await db.table("suppliers").run(req.app._rdbConn);
+    let suppliers = cursor.toArray();
+    res.status(200).send({ suppliers: suppliers });
   } catch (error) {
     print(error);
     res.status(400).send({ message: "Tedarikçiler getirilemedi." });
@@ -65,51 +49,27 @@ router.put("/:supplierId", checkAuth, async (req, res) => {
     if (!name) {
       res.status(400).send({ message: "Tedarikçi adı boş olamaz!" });
     } else {
-      await db
-        .table("suppliers")
-        .get(supplierId)
-        .run(req.app._rdbConn, async (err, cursor) => {
-          if (err) throw err;
-          if (cursor.name !== name) {
-            await db
-              .table("suppliers")
-              .filter(r.row("name").eq(name))
-              .count()
-              .eq(1)
-              .run(req.app._rdbConn, async (err, result) => {
-                if (err) throw err;
-                if (result) {
-                  res.status(400).send({ message: "Bu tedarikçi zaten kullanımda." });
-                } else {
-                  await db
-                    .table("suppliers")
-                    .get(supplierId)
-                    .update(req.body)
-                    .run(req.app._rdbConn, async (err, cursor) => {
-                      if (err) throw err;
-                      res.status(200).send({ message: "Tedarikçi güncellendi" });
-                      await db
-                        .table("logs")
-                        .insert({ email: user, log: cursor.name + " tedarikçisi güncellendi!" })
-                        .run(req.app._rdbConn);
-                    });
-                }
-              });
-          } else {
-            await db
-              .table("suppliers")
-              .get(supplierId)
-              .update(req.body)
-              .run(req.app._rdbConn, async (err, cursor) => {
-                if (err) throw err;
-                res.status(200).send({ message: "Tedarikçi güncellendi" });
-                await db
-                  .table("logs")
-                  .insert({ email: user, log: name + " tedarikçisi güncellendi!" })
-                  .run(req.app._rdbConn);
-              });
-          }
-        });
+      let cursor = await db.table("suppliers").get(supplierId).run(req.app._rdbConn);
+      if (cursor.name !== name) {
+        let result = await db.table("suppliers").filter(r.row("name").eq(name)).count().eq(1).run(req.app._rdbConn);
+        if (result) {
+          res.status(400).send({ message: "Bu tedarikçi zaten kullanımda." });
+        } else {
+          let cursor = await db.table("suppliers").get(supplierId).update(req.body).run(req.app._rdbConn);
+          res.status(200).send({ message: "Tedarikçi güncellendi" });
+          await db
+            .table("logs")
+            .insert({ email: user, log: cursor.name + " tedarikçisi güncellendi!" })
+            .run(req.app._rdbConn);
+        }
+      } else {
+        await db.table("suppliers").get(supplierId).update(req.body).run(req.app._rdbConn);
+        res.status(200).send({ message: "Tedarikçi güncellendi" });
+        await db
+          .table("logs")
+          .insert({ email: user, log: name + " tedarikçisi güncellendi!" })
+          .run(req.app._rdbConn);
+      }
     }
   } catch (error) {
     print(error);
@@ -121,18 +81,12 @@ router.delete("/:supplierId", checkAuth, async (req, res) => {
   try {
     var supplierId = req.params.supplierId;
     let user = req.userData.email;
+    let cursor = await db.table("suppliers").get(supplierId).delete({ returnChanges: true }).run(req.app._rdbConn);
+    res.status(200).send({ message: "Tedarikçi silindi" });
     await db
-      .table("suppliers")
-      .get(supplierId)
-      .delete({ returnChanges: true })
-      .run(req.app._rdbConn, async (err, cursor) => {
-        if (err) throw err;
-        res.status(200).send({ message: "Tedarikçi silindi" });
-        await db
-          .table("logs")
-          .insert({ email: user, log: cursor.changes[0]["old_val"].name + " tedarikçisi silindi!" })
-          .run(req.app._rdbConn);
-      });
+      .table("logs")
+      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " tedarikçisi silindi!" })
+      .run(req.app._rdbConn);
   } catch (error) {
     print(error);
     res.status(400).send({ message: "Tedarikçi silme başarısız." });
