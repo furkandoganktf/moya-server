@@ -21,7 +21,7 @@ router.post("/users/authenticate", async (req, res) => {
     } else {
       password = crypto.createHash("md5").update(req.body.password).digest("hex");
       let cursor = await db.table("users").filter({ email: username, password: password }).run(req.app._rdbConn);
-      let user = cursor.toArray();
+      let user = await cursor.toArray();
       if (user.length !== 0) {
         const token = jwt.sign(
           {
@@ -69,9 +69,10 @@ router.post("/users/register", checkAuth, async (req, res) => {
           })
           .run(req.app._rdbConn);
         res.status(200).send({ message: "Kullanıcı başarıyla oluşturuldu." });
+        let timeStamp = Date.now();
         await db
           .table("logs")
-          .insert({ email: user, log: username + " kullancısı eklendi!" })
+          .insert({ email: user, log: username + " kullancısı eklendi!", timeStamp: timeStamp })
           .run(req.app._rdbConn);
       }
     }
@@ -84,10 +85,8 @@ router.post("/users/register", checkAuth, async (req, res) => {
 router.get("/users", checkAuth, async (req, res) => {
   try {
     let cursor = await db.table("users").run(req.app._rdbConn);
-    cursor.toArray(async (err, users) => {
-      if (err) throw err;
-      res.status(200).send({ users: users });
-    });
+    let users = await cursor.toArray();
+    res.status(200).send({ users: users });
   } catch (error) {
     print(error);
     res.status(400).send({ message: "Kullancılar getirilemedi." });
@@ -116,9 +115,10 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
             .update({ ...req.body, password: password })
             .run(req.app._rdbConn);
           res.status(200).send({ message: "Kullanıcı güncellendi" });
+          let timeStamp = Date.now();
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.email + " kullancısı güncellendi!" })
+            .insert({ email: user, log: cursor.email + " kullancısı güncellendi!", timeStamp: timeStamp })
             .run(req.app._rdbConn);
         }
       } else {
@@ -129,9 +129,10 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
           .update({ ...req.body, password: password })
           .run(req.app._rdbConn);
         res.status(200).send({ message: "Kullanıcı güncellendi" });
+        let timeStamp = Date.now();
         await db
           .table("logs")
-          .insert({ email: user, log: username + " kullancısı güncellendi!" })
+          .insert({ email: user, log: username + " kullancısı güncellendi!", timeStamp: timeStamp })
           .run(req.app._rdbConn);
       }
     }
@@ -147,9 +148,10 @@ router.delete("/users/:userId", checkAuth, async (req, res) => {
     let user = req.userData.email;
     let cursor = await db.table("users").get(userId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Kullanıcı silindi" });
+    let timeStamp = Date.now();
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].email + " kullanıcısı silindi!" })
+      .insert({ email: user, log: cursor.changes[0]["old_val"].email + " kullanıcısı silindi!", timeStamp: timeStamp })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);
@@ -160,10 +162,8 @@ router.delete("/users/:userId", checkAuth, async (req, res) => {
 router.get("/logs", checkAuth, async (req, res) => {
   try {
     let cursor = await db.table("logs").run(req.app._rdbConn);
-    cursor.toArray(async (err, logs) => {
-      if (err) throw err;
-      res.status(200).send({ logs: logs });
-    });
+    let logs = await cursor.toArray();
+    res.status(200).send({ logs: logs });
   } catch (error) {
     print(error);
     res.status(400).send({ message: "Loglar getirilemedi." });

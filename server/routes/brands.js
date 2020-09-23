@@ -19,9 +19,10 @@ router.post("/", checkAuth, async (req, res) => {
     } else {
       await db.table("brands").insert(req.body).run(req.app._rdbConn);
       res.status(200).send({ message: "Marka başarıyla oluşturuldu." });
+      let timeStamp = Date.now();
       await db
         .table("logs")
-        .insert({ email: user, log: name + " markası eklendi!" })
+        .insert({ email: user, log: name + " markası eklendi!", timeStamp: timeStamp })
         .run(req.app._rdbConn);
     }
   } catch (error) {
@@ -33,7 +34,7 @@ router.post("/", checkAuth, async (req, res) => {
 router.get("/", checkAuth, async (req, res) => {
   try {
     let cursor = await db.table("brands").run(req.app._rdbConn);
-    let brands = cursor.toArray();
+    let brands = await cursor.toArray();
     res.status(200).send({ brands: brands });
   } catch (error) {
     print(error);
@@ -57,17 +58,19 @@ router.put("/:brandId", checkAuth, async (req, res) => {
         } else {
           let cursor = await db.table("brands").get(brandId).update(req.body).run(req.app._rdbConn);
           res.status(200).send({ message: "Marka güncellendi" });
+          let timeStamp = Date.now();
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.name + " markası güncellendi!" })
+            .insert({ email: user, log: cursor.name + " markası güncellendi!", timeStamp: timeStamp })
             .run(req.app._rdbConn);
         }
       } else {
         await db.table("brands").get(brandId).update(req.body).run(req.app._rdbConn);
         res.status(200).send({ message: "Marka güncellendi" });
+        let timeStamp = Date.now();
         await db
           .table("logs")
-          .insert({ email: user, log: name + " markası güncellendi!" })
+          .insert({ email: user, log: name + " markası güncellendi!", timeStamp: timeStamp })
           .run(req.app._rdbConn);
       }
     }
@@ -83,9 +86,10 @@ router.delete("/:brandId", checkAuth, async (req, res) => {
     let user = req.userData.email;
     let cursor = await db.table("brands").get(brandId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Marka silindi" });
+    let timeStamp = Date.now();
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " markası silindi!" })
+      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " markası silindi!", timeStamp: timeStamp })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);

@@ -19,9 +19,10 @@ router.post("/", checkAuth, async (req, res) => {
     } else {
       await db.table("customers").insert(req.body).run(req.app._rdbConn);
       res.status(200).send({ message: "Müşteri başarıyla oluşturuldu." });
+      let timeStamp = Date.now();
       await db
         .table("logs")
-        .insert({ email: user, log: companyName + " müşterisi eklendi!" })
+        .insert({ email: user, log: companyName + " müşterisi eklendi!", timeStamp: timeStamp })
         .run(req.app._rdbConn);
     }
   } catch (error) {
@@ -33,7 +34,7 @@ router.post("/", checkAuth, async (req, res) => {
 router.get("/", checkAuth, async (req, res) => {
   try {
     let cursor = await db.table("customers").run(req.app._rdbConn);
-    let customers = cursor.toArray();
+    let customers = await cursor.toArray();
     res.status(200).send({ customers: customers });
   } catch (error) {
     print(error);
@@ -57,17 +58,19 @@ router.put("/:customerId", checkAuth, async (req, res) => {
         } else {
           let cursor = await db.table("customers").get(customerId).update(req.body).run(req.app._rdbConn);
           res.status(200).send({ message: "Müşteri güncellendi" });
+          let timeStamp = Date.now();
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.companyName + " müşterisi güncellendi!" })
+            .insert({ email: user, log: cursor.companyName + " müşterisi güncellendi!", timeStamp: timeStamp })
             .run(req.app._rdbConn);
         }
       } else {
         await db.table("customers").get(customerId).update(req.body).run(req.app._rdbConn);
         res.status(200).send({ message: "Müşteri güncellendi" });
+        let timeStamp = Date.now();
         await db
           .table("logs")
-          .insert({ email: user, log: companyName + " müşterisi güncellendi!" })
+          .insert({ email: user, log: companyName + " müşterisi güncellendi!", timeStamp: timeStamp })
           .run(req.app._rdbConn);
       }
     }
@@ -83,9 +86,10 @@ router.delete("/:customerId", checkAuth, async (req, res) => {
     let user = req.userData.email;
     let cursor = await db.table("customers").get(customerId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Müşteri silindi" });
+    let timeStamp = Date.now();
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].companyName + " müşterisi silindi!" })
+      .insert({ email: user, log: cursor.changes[0]["old_val"].companyName + " müşterisi silindi!", timeStamp: timeStamp })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);

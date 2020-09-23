@@ -36,9 +36,10 @@ router.post("/", checkAuth, async (req, res) => {
           .run(req.app._rdbConn);
       }
       res.status(200).send({ message: "Ürün başarıyla oluşturuldu." });
+      let timeStamp = Date.now();
       await db
         .table("logs")
-        .insert({ email: user, log: name + " ürün eklendi!" })
+        .insert({ email: user, log: name + " ürün eklendi!", timeStamp: timeStamp })
         .run(req.app._rdbConn);
     }
   } catch (error) {
@@ -74,17 +75,19 @@ router.put("/:productId", checkAuth, async (req, res) => {
         } else {
           let cursor = await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
           res.status(200).send({ message: "Ürün güncellendi" });
+          let timeStamp = Date.now();
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.name + " ürünü güncellendi!" })
+            .insert({ email: user, log: cursor.name + " ürünü güncellendi!", timeStamp: timeStamp })
             .run(req.app._rdbConn);
         }
       } else {
         await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
         res.status(200).send({ message: "Ürün güncellendi" });
+        let timeStamp = Date.now();
         await db
           .table("logs")
-          .insert({ email: user, log: name + " ürünü güncellendi!" })
+          .insert({ email: user, log: name + " ürünü güncellendi!", timeStamp: timeStamp })
           .run(req.app._rdbConn);
       }
     }
@@ -100,9 +103,10 @@ router.delete("/:productId", checkAuth, async (req, res) => {
     let user = req.userData.email;
     let cursor = await db.table("products").get(productId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Ürün silindi" });
+    let timeStamp = Date.now();
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " ürünü silindi!" })
+      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " ürünü silindi!", timeStamp: timeStamp })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);
@@ -129,9 +133,10 @@ router.post("/package", checkAuth, async (req, res) => {
       await db.table("products").get(key).update({ stock: value }).run(req.app._rdbConn);
     }
     await db.table("products").get(productId).update({ stock: stock }).run(req.app._rdbConn);
+    let timeStamp = Date.now();
     await db
       .table("logs")
-      .insert({ email: user, log: result.name + " ürünü paketlendi!" })
+      .insert({ email: user, log: result.name + " ürünü paketlendi!", timeStamp: timeStamp })
       .run(req.app._rdbConn);
     res.status(200).send({ message: "Ürün paketlendi" });
   } catch (error) {
