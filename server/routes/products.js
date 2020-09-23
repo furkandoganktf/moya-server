@@ -153,7 +153,8 @@ let actionsConstants = {
 
 router.post("/stocks", checkAuth, async (req, res) => {
   try {
-    let log = { ...req.body, type: actionsConstants[req.body.type] };
+    let timeStamp = Date.now();
+    let log = { ...req.body, type: actionsConstants[req.body.type], timeStamp: timeStamp };
     await db.table("stock_logs").insert(log).run(req.app._rdbConn);
     res.status(200).send({ message: "Stok güncellendi" });
   } catch (error) {
