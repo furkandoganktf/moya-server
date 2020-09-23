@@ -20,9 +20,11 @@ router.post("/", checkAuth, async (req, res) => {
       await db.table("suppliers").insert(req.body).run(req.app._rdbConn);
       res.status(200).send({ message: "Tedarikçi başarıyla oluşturuldu." });
       let timeStamp = Date.now();
+      let date = new Date(timeStamp);
+      let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
       await db
         .table("logs")
-        .insert({ email: user, log: name + " tedarikçisi eklendi!", timeStamp: timeStamp })
+        .insert({ email: user, log: name + " tedarikçisi eklendi!", timeStamp: timeStamp, date: dateString })
         .run(req.app._rdbConn);
     }
   } catch (error) {
@@ -59,18 +61,22 @@ router.put("/:supplierId", checkAuth, async (req, res) => {
           let cursor = await db.table("suppliers").get(supplierId).update(req.body).run(req.app._rdbConn);
           res.status(200).send({ message: "Tedarikçi güncellendi" });
           let timeStamp = Date.now();
+          let date = new Date(timeStamp);
+          let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.name + " tedarikçisi güncellendi!", timeStamp: timeStamp })
+            .insert({ email: user, log: cursor.name + " tedarikçisi güncellendi!", timeStamp: timeStamp, date: dateString })
             .run(req.app._rdbConn);
         }
       } else {
         await db.table("suppliers").get(supplierId).update(req.body).run(req.app._rdbConn);
         res.status(200).send({ message: "Tedarikçi güncellendi" });
         let timeStamp = Date.now();
+        let date = new Date(timeStamp);
+        let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
         await db
           .table("logs")
-          .insert({ email: user, log: name + " tedarikçisi güncellendi!", timeStamp: timeStamp })
+          .insert({ email: user, log: name + " tedarikçisi güncellendi!", timeStamp: timeStamp, date: dateString })
           .run(req.app._rdbConn);
       }
     }
@@ -87,9 +93,11 @@ router.delete("/:supplierId", checkAuth, async (req, res) => {
     let cursor = await db.table("suppliers").get(supplierId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Tedarikçi silindi" });
     let timeStamp = Date.now();
+    let date = new Date(timeStamp);
+    let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " tedarikçisi silindi!", timeStamp: timeStamp })
+      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " tedarikçisi silindi!", timeStamp: timeStamp, date: dateString })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);

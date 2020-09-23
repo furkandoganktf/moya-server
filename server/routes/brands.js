@@ -20,9 +20,11 @@ router.post("/", checkAuth, async (req, res) => {
       await db.table("brands").insert(req.body).run(req.app._rdbConn);
       res.status(200).send({ message: "Marka başarıyla oluşturuldu." });
       let timeStamp = Date.now();
+      let date = new Date(timeStamp);
+      let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
       await db
         .table("logs")
-        .insert({ email: user, log: name + " markası eklendi!", timeStamp: timeStamp })
+        .insert({ email: user, log: name + " markası eklendi!", timeStamp: timeStamp, date: dateString })
         .run(req.app._rdbConn);
     }
   } catch (error) {
@@ -59,18 +61,22 @@ router.put("/:brandId", checkAuth, async (req, res) => {
           let cursor = await db.table("brands").get(brandId).update(req.body).run(req.app._rdbConn);
           res.status(200).send({ message: "Marka güncellendi" });
           let timeStamp = Date.now();
+          let date = new Date(timeStamp);
+          let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.name + " markası güncellendi!", timeStamp: timeStamp })
+            .insert({ email: user, log: cursor.name + " markası güncellendi!", timeStamp: timeStamp, date: dateString })
             .run(req.app._rdbConn);
         }
       } else {
         await db.table("brands").get(brandId).update(req.body).run(req.app._rdbConn);
         res.status(200).send({ message: "Marka güncellendi" });
         let timeStamp = Date.now();
+        let date = new Date(timeStamp);
+        let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
         await db
           .table("logs")
-          .insert({ email: user, log: name + " markası güncellendi!", timeStamp: timeStamp })
+          .insert({ email: user, log: name + " markası güncellendi!", timeStamp: timeStamp, date: dateString })
           .run(req.app._rdbConn);
       }
     }
@@ -87,9 +93,11 @@ router.delete("/:brandId", checkAuth, async (req, res) => {
     let cursor = await db.table("brands").get(brandId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Marka silindi" });
     let timeStamp = Date.now();
+    let date = new Date(timeStamp);
+    let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " markası silindi!", timeStamp: timeStamp })
+      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " markası silindi!", timeStamp: timeStamp, date: dateString })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);

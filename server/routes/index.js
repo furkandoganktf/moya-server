@@ -70,9 +70,11 @@ router.post("/users/register", checkAuth, async (req, res) => {
           .run(req.app._rdbConn);
         res.status(200).send({ message: "Kullanıcı başarıyla oluşturuldu." });
         let timeStamp = Date.now();
+        let date = new Date(timeStamp);
+        let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
         await db
           .table("logs")
-          .insert({ email: user, log: username + " kullancısı eklendi!", timeStamp: timeStamp })
+          .insert({ email: user, log: username + " kullancısı eklendi!", timeStamp: timeStamp, date: dateString })
           .run(req.app._rdbConn);
       }
     }
@@ -116,9 +118,11 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
             .run(req.app._rdbConn);
           res.status(200).send({ message: "Kullanıcı güncellendi" });
           let timeStamp = Date.now();
+          let date = new Date(timeStamp);
+          let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.email + " kullancısı güncellendi!", timeStamp: timeStamp })
+            .insert({ email: user, log: cursor.email + " kullancısı güncellendi!", timeStamp: timeStamp, date: dateString })
             .run(req.app._rdbConn);
         }
       } else {
@@ -130,9 +134,11 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
           .run(req.app._rdbConn);
         res.status(200).send({ message: "Kullanıcı güncellendi" });
         let timeStamp = Date.now();
+        let date = new Date(timeStamp);
+        let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
         await db
           .table("logs")
-          .insert({ email: user, log: username + " kullancısı güncellendi!", timeStamp: timeStamp })
+          .insert({ email: user, log: username + " kullancısı güncellendi!", timeStamp: timeStamp, date: dateString })
           .run(req.app._rdbConn);
       }
     }
@@ -149,9 +155,11 @@ router.delete("/users/:userId", checkAuth, async (req, res) => {
     let cursor = await db.table("users").get(userId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Kullanıcı silindi" });
     let timeStamp = Date.now();
+    let date = new Date(timeStamp);
+    let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].email + " kullanıcısı silindi!", timeStamp: timeStamp })
+      .insert({ email: user, log: cursor.changes[0]["old_val"].email + " kullanıcısı silindi!", timeStamp: timeStamp, date: dateString })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);
@@ -162,6 +170,17 @@ router.delete("/users/:userId", checkAuth, async (req, res) => {
 router.get("/logs", checkAuth, async (req, res) => {
   try {
     let cursor = await db.table("logs").run(req.app._rdbConn);
+    let logs = await cursor.toArray();
+    res.status(200).send({ logs: logs });
+  } catch (error) {
+    print(error);
+    res.status(400).send({ message: "Loglar getirilemedi." });
+  }
+});
+
+router.get("/stockLogs", checkAuth, async (req, res) => {
+  try {
+    let cursor = await db.table("stock_logs").run(req.app._rdbConn);
     let logs = await cursor.toArray();
     res.status(200).send({ logs: logs });
   } catch (error) {
