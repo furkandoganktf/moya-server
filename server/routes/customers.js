@@ -11,7 +11,7 @@ const db = r.db("moya");
 
 router.post("/", checkAuth, async (req, res) => {
   try {
-    let user = req.userData.email;
+    let user = req.userData.userName;
     let companyName = req.body.companyName;
     let result = await db.table("customers").filter(r.row("companyName").eq(companyName)).count().eq(1).run(req.app._rdbConn);
     if (result) {
@@ -24,7 +24,7 @@ router.post("/", checkAuth, async (req, res) => {
       let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
       await db
         .table("logs")
-        .insert({ email: user, log: companyName + " müşterisi eklendi!", timeStamp: timeStamp, date: dateString })
+        .insert({ userName: user, log: companyName + " müşterisi eklendi!", timeStamp: timeStamp, date: dateString })
         .run(req.app._rdbConn);
     }
   } catch (error) {
@@ -46,7 +46,7 @@ router.get("/", checkAuth, async (req, res) => {
 
 router.put("/:customerId", checkAuth, async (req, res) => {
   try {
-    let user = req.userData.email;
+    let user = req.userData.userName;
     var customerId = req.params.customerId;
     const companyName = req.body.companyName;
     if (!companyName) {
@@ -65,7 +65,7 @@ router.put("/:customerId", checkAuth, async (req, res) => {
           let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.companyName + " müşterisi güncellendi!", timeStamp: timeStamp, date: dateString })
+            .insert({ userName: user, log: cursor.companyName + " müşterisi güncellendi!", timeStamp: timeStamp, date: dateString })
             .run(req.app._rdbConn);
         }
       } else {
@@ -76,7 +76,7 @@ router.put("/:customerId", checkAuth, async (req, res) => {
         let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
         await db
           .table("logs")
-          .insert({ email: user, log: companyName + " müşterisi güncellendi!", timeStamp: timeStamp, date: dateString })
+          .insert({ userName: user, log: companyName + " müşterisi güncellendi!", timeStamp: timeStamp, date: dateString })
           .run(req.app._rdbConn);
       }
     }
@@ -89,7 +89,7 @@ router.put("/:customerId", checkAuth, async (req, res) => {
 router.delete("/:customerId", checkAuth, async (req, res) => {
   try {
     var customerId = req.params.customerId;
-    let user = req.userData.email;
+    let user = req.userData.userName;
     let cursor = await db.table("customers").get(customerId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Müşteri silindi" });
     let timeStamp = Date.now();
@@ -97,7 +97,7 @@ router.delete("/:customerId", checkAuth, async (req, res) => {
     let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].companyName + " müşterisi silindi!", timeStamp: timeStamp, date: dateString })
+      .insert({ userName: user, log: cursor.changes[0]["old_val"].companyName + " müşterisi silindi!", timeStamp: timeStamp, date: dateString })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);

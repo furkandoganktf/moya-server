@@ -11,7 +11,7 @@ const db = r.db("moya");
 
 router.post("/", checkAuth, async (req, res) => {
   try {
-    let user = req.userData.email;
+    let user = req.userData.userName;
     let name = req.body.name;
     let supplier = req.body.supplier;
     let result = await db
@@ -41,7 +41,7 @@ router.post("/", checkAuth, async (req, res) => {
       let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
       await db
         .table("logs")
-        .insert({ email: user, log: name + " ürün eklendi!", timeStamp: timeStamp, date: dateString })
+        .insert({ userName: user, log: name + " ürün eklendi!", timeStamp: timeStamp, date: dateString })
         .run(req.app._rdbConn);
     }
   } catch (error) {
@@ -63,7 +63,7 @@ router.get("/", checkAuth, async (req, res) => {
 
 router.put("/:productId", checkAuth, async (req, res) => {
   try {
-    let user = req.userData.email;
+    let user = req.userData.userName;
     var productId = req.params.productId;
     const name = req.body.name;
     if (!name) {
@@ -82,7 +82,7 @@ router.put("/:productId", checkAuth, async (req, res) => {
           let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
-            .insert({ email: user, log: cursor.name + " ürünü güncellendi!", timeStamp: timeStamp, date: dateString })
+            .insert({ userName: user, log: cursor.name + " ürünü güncellendi!", timeStamp: timeStamp, date: dateString })
             .run(req.app._rdbConn);
         }
       } else {
@@ -93,7 +93,7 @@ router.put("/:productId", checkAuth, async (req, res) => {
         let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
         await db
           .table("logs")
-          .insert({ email: user, log: name + " ürünü güncellendi!", timeStamp: timeStamp, date: dateString })
+          .insert({ userName: user, log: name + " ürünü güncellendi!", timeStamp: timeStamp, date: dateString })
           .run(req.app._rdbConn);
       }
     }
@@ -106,7 +106,7 @@ router.put("/:productId", checkAuth, async (req, res) => {
 router.delete("/:productId", checkAuth, async (req, res) => {
   try {
     var productId = req.params.productId;
-    let user = req.userData.email;
+    let user = req.userData.userName;
     let cursor = await db.table("products").get(productId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Ürün silindi" });
     let timeStamp = Date.now();
@@ -114,7 +114,7 @@ router.delete("/:productId", checkAuth, async (req, res) => {
     let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     await db
       .table("logs")
-      .insert({ email: user, log: cursor.changes[0]["old_val"].name + " ürünü silindi!", timeStamp: timeStamp, date: dateString })
+      .insert({ userName: user, log: cursor.changes[0]["old_val"].name + " ürünü silindi!", timeStamp: timeStamp, date: dateString })
       .run(req.app._rdbConn);
   } catch (error) {
     print(error);
@@ -124,7 +124,7 @@ router.delete("/:productId", checkAuth, async (req, res) => {
 
 router.post("/package", checkAuth, async (req, res) => {
   try {
-    let user = req.userData.email;
+    let user = req.userData.userName;
     let productId = req.body.id;
     let amount = req.body.amount;
     let stock = 0;
@@ -146,7 +146,7 @@ router.post("/package", checkAuth, async (req, res) => {
     let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     await db
       .table("logs")
-      .insert({ email: user, log: result.name + " ürünü paketlendi!", timeStamp: timeStamp, date: dateString })
+      .insert({ userName: user, log: result.name + " ürünü paketlendi!", timeStamp: timeStamp, date: dateString })
       .run(req.app._rdbConn);
     res.status(200).send({ message: "Ürün paketlendi" });
   } catch (error) {
