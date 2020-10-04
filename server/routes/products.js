@@ -14,31 +14,28 @@ router.post("/", checkAuth, async (req, res) => {
     let user = req.userData.userName;
     let name = req.body.name;
     let supplier = req.body.supplier;
-    let result = await db
-      .table("products")
-      .filter(r.row("name").eq(name).and(r.row("supplier").eq(supplier)))
-      .count()
-      .eq(1)
-      .run(req.app._rdbConn);
+    let type = req.body.type;
+    let result = await db.table("products").filter({ name: name, supplier: supplier, type: type }).count().eq(1).run(req.app._rdbConn);
     if (result) {
       res.status(400).send({ message: "Bu ürün adı zaten kullanımda." });
     } else {
       let changes = await db.table("products").insert(req.body, { returnChanges: true }).run(req.app._rdbConn);
-      if (req.body.type === "box") {
-        await db
-          .table("stock_logs")
-          .insert({
-            productId: changes["generated_keys"][0],
-            type: "Stok Girişi",
-            oldStock: 0,
-            newStock: req.body.stock,
-          })
-          .run(req.app._rdbConn);
-      }
-      res.status(200).send({ message: "Ürün başarıyla oluşturuldu." });
       let timeStamp = Date.now();
       let date = new Date(timeStamp);
       let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
+      await db
+        .table("stock_logs")
+        .insert({
+          productId: changes["generated_keys"][0],
+          type: "Stok Girişi",
+          productType: type,
+          oldStock: 0,
+          newStock: req.body.stock,
+          timeStamp: timeStamp,
+          date: dateString,
+        })
+        .run(req.app._rdbConn);
+      res.status(200).send({ message: "Ürün başarıyla oluşturuldu." });
       await db
         .table("logs")
         .insert({ userName: user, log: name + " ürün eklendi!", timeStamp: timeStamp, date: dateString })
@@ -161,12 +158,24 @@ let actionsConstants = {
   box: "Ürün Paketleme",
 };
 
+let typeConstants = {
+  box: "Kutulu Ürün",
+  material: "Hammadde",
+  package: "Ambalaj",
+};
+
 router.post("/stocks", checkAuth, async (req, res) => {
   try {
     let timeStamp = Date.now();
     let date = new Date(timeStamp);
     let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
-    let log = { ...req.body, type: actionsConstants[req.body.type], timeStamp: timeStamp, date: dateString };
+    let log = {
+      ...req.body,
+      type: actionsConstants[req.body.type],
+      productType: typeConstants[req.body.productType],
+      timeStamp: timeStamp,
+      date: dateString,
+    };
     await db.table("stock_logs").insert(log).run(req.app._rdbConn);
     res.status(200).send({ message: "Stok güncellendi" });
   } catch (error) {
