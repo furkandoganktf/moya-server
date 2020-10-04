@@ -9,6 +9,18 @@ dotenv.config();
 
 const db = r.db("moya");
 
+let actionsConstants = {
+  add: "Stok Girişi",
+  substract: "Stok Çıkışı",
+  box: "Ürün Paketleme",
+};
+
+let typeConstants = {
+  box: "Kutulu Ürün",
+  material: "Hammadde",
+  package: "Ambalaj",
+};
+
 router.post("/", checkAuth, async (req, res) => {
   try {
     let user = req.userData.userName;
@@ -28,7 +40,7 @@ router.post("/", checkAuth, async (req, res) => {
         .insert({
           productId: changes["generated_keys"][0],
           type: "Stok Girişi",
-          productType: type,
+          productType: typeConstants[type],
           oldStock: 0,
           newStock: req.body.stock,
           timeStamp: timeStamp,
@@ -151,18 +163,6 @@ router.post("/package", checkAuth, async (req, res) => {
     res.status(400).send({ message: "Kayıt başarısız." });
   }
 });
-
-let actionsConstants = {
-  add: "Stok Girişi",
-  substract: "Stok Çıkışı",
-  box: "Ürün Paketleme",
-};
-
-let typeConstants = {
-  box: "Kutulu Ürün",
-  material: "Hammadde",
-  package: "Ambalaj",
-};
 
 router.post("/stocks", checkAuth, async (req, res) => {
   try {
