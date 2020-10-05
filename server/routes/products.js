@@ -86,6 +86,9 @@ router.put("/:productId", checkAuth, async (req, res) => {
         } else {
           let cursor = await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
           res.status(200).send({ message: "Ürün güncellendi" });
+          if (parseInt(cursor.stock) <= parseInt(cursor.threshold)) {
+            // !TODO - Email
+          }
           let timeStamp = Date.now();
           let date = new Date(timeStamp);
           let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
@@ -97,6 +100,10 @@ router.put("/:productId", checkAuth, async (req, res) => {
       } else {
         await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
         res.status(200).send({ message: "Ürün güncellendi" });
+        console.log(cursor);
+        if (parseInt(cursor.stock) <= parseInt(cursor.threshold)) {
+          // !TODO - Email
+        }
         let timeStamp = Date.now();
         let date = new Date(timeStamp);
         let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
@@ -137,22 +144,40 @@ router.post("/package", checkAuth, async (req, res) => {
     let productId = req.body.id;
     let amount = req.body.amount;
     let stock = 0;
+    let timeStamp = Date.now();
+    let date = new Date(timeStamp);
+    let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     let result = await db.table("products").get(productId).run(req.app._rdbConn);
     stock = parseInt(result.stock) + parseInt(amount);
+    let newStocks = {};
     for (let [key, value] of Object.entries(result.content)) {
       let ingridient = await db.table("products").get(key).run(req.app._rdbConn);
       if (ingridient.stock < value * amount) {
         throw new Error("Yeterli " + ingridient.name + " yok.");
       }
-      result.content[key] = ingridient.stock - value * amount;
+      newStocks[key] = ingridient.stock - value * amount;
     }
-    for (let [key, value] of Object.entries(result.content)) {
+    for (let [key, value] of Object.entries(newStocks)) {
+      let product = await db.table("products").get(key).run(req.app._rdbConn);
+      await db
+        .table("stock_logs")
+        .insert({
+          newStock: value,
+          oldStock: product.stock,
+          productId: product.id,
+          productName: product.name,
+          type: actionsConstants["box"],
+          productType: typeConstants[product.type],
+          timeStamp: timeStamp,
+          date: dateString,
+        })
+        .run(req.app._rdbConn);
+      if (parseInt(value) <= parseInt(product.threshold)) {
+        // !TODO - Email
+      }
       await db.table("products").get(key).update({ stock: value }).run(req.app._rdbConn);
     }
     await db.table("products").get(productId).update({ stock: stock }).run(req.app._rdbConn);
-    let timeStamp = Date.now();
-    let date = new Date(timeStamp);
-    let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     await db
       .table("logs")
       .insert({ userName: user, log: result.name + " ürünü paketlendi!", timeStamp: timeStamp, date: dateString })
