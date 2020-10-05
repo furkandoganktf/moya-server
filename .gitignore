@@ -1,5 +1,4 @@
 .vscode/
-rethinkdb_data/
 node_modules/
 .env
 __pycache__/

@@ -1,0 +1,589 @@
+2020-09-18T17:08:54.300177000 0.054717s notice: Recursively removing directory /Users/furkan/Developer/moya-server/rethinkdb_data/tmp
+2020-09-18T17:08:54.302009000 0.056552s notice: Initializing directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-18T17:08:54.302105000 0.056645s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/furkan/Developer/moya-server/rethinkdb_data' did not already exist or is empty.)
+2020-09-18T17:08:54.302145000 0.056685s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-18T17:08:54.312484000 0.067026s notice: Running on Darwin 19.6.0 x86_64
+2020-09-18T17:08:54.312539000 0.067079s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-18T17:08:54.413598000 0.168137s info: Automatically using cache size of 1027 MB
+2020-09-18T17:08:54.414044000 0.168583s notice: Listening for intracluster connections on port 29015
+2020-09-18T17:08:54.415224000 0.169762s notice: Listening for client driver connections on port 28015
+2020-09-18T17:08:54.415285000 0.169823s notice: Listening for administrative HTTP connections on port 8080
+2020-09-18T17:08:54.415293000 0.169831s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-18T17:08:54.415298000 0.169836s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-18T17:08:54.415303000 0.169841s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-18T17:08:54.415307000 0.169845s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-18T17:08:54.415312000 0.169850s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-18T17:10:32.606542000 98.359816s info: Table ab2bf9ee-d038-4519-b6ca-4a2aadf6ae38: Starting a new Raft election for term 1.
+2020-09-18T17:10:32.607052000 98.360326s info: Table ab2bf9ee-d038-4519-b6ca-4a2aadf6ae38: Added replica on this server.
+2020-09-18T17:10:32.628859000 98.382133s info: Table ab2bf9ee-d038-4519-b6ca-4a2aadf6ae38: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-18T17:10:59.614713000 125.367639s notice: Server got SIGINT from pid 10495, uid 501; shutting down...
+2020-09-18T17:10:59.614921000 125.367847s notice: Shutting down client connections...
+2020-09-18T17:10:59.615001000 125.367926s notice: All client connections closed.
+2020-09-18T17:10:59.615004000 125.367930s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-18T17:10:59.617823000 125.370749s notice: Storage engine shut down.
+2020-09-18T17:11:48.832931000 0.017857s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-18T17:11:48.847809000 0.032729s notice: Running on Darwin 19.6.0 x86_64
+2020-09-18T17:11:48.847861000 0.032780s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-18T17:11:48.877989000 0.062909s info: Automatically using cache size of 695 MB
+2020-09-18T17:11:48.878830000 0.063749s notice: Listening for intracluster connections on port 29015
+2020-09-18T17:11:48.891615000 0.076534s notice: Listening for client driver connections on port 28015
+2020-09-18T17:11:48.891739000 0.076658s notice: Listening for administrative HTTP connections on port 8080
+2020-09-18T17:11:48.891742000 0.076661s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-18T17:11:48.891812000 0.076731s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-18T17:11:48.891815000 0.076733s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-18T17:11:48.891822000 0.076741s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-18T17:11:48.891825000 0.076743s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-18T17:11:49.940637000 1.125543s info: Table ab2bf9ee-d038-4519-b6ca-4a2aadf6ae38: Starting a new Raft election for term 2.
+2020-09-18T17:11:49.954856000 1.139761s info: Table ab2bf9ee-d038-4519-b6ca-4a2aadf6ae38: This server is Raft leader for term 2. Latest log index is 2.
+2020-09-18T17:12:37.481319000 48.665612s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 1.
+2020-09-18T17:12:37.481491000 48.665784s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Added replica on this server.
+2020-09-18T17:12:37.506094000 48.690386s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-18T17:12:46.246268000 57.430448s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/ab2bf9ee-d038-4519-b6ca-4a2aadf6ae38
+2020-09-18T17:12:46.246276000 57.430456s info: Table ab2bf9ee-d038-4519-b6ca-4a2aadf6ae38: Deleted the table.
+2020-09-18T17:26:25.357075000 876.530703s notice: Server got SIGINT from pid 10495, uid 501; shutting down...
+2020-09-18T17:26:25.372063000 876.545691s notice: Shutting down client connections...
+2020-09-18T17:26:25.404783000 876.578410s notice: All client connections closed.
+2020-09-18T17:26:25.404921000 876.578548s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-18T17:26:25.584376000 876.758001s notice: Storage engine shut down.
+2020-09-18T17:26:27.228852000 0.046304s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-18T17:26:27.243317000 0.060767s notice: Running on Darwin 19.6.0 x86_64
+2020-09-18T17:26:27.243382000 0.060831s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-18T17:26:27.284801000 0.102249s info: Automatically using cache size of 100 MB
+2020-09-18T17:26:27.284808000 0.102256s warn: Cache size does not leave much memory for server and query overhead (available memory: 591 MB).
+2020-09-18T17:26:27.284812000 0.102260s warn: Cache size is very low and may impact performance.
+2020-09-18T17:26:27.285459000 0.102908s notice: Listening for intracluster connections on port 29015
+2020-09-18T17:26:27.322174000 0.139622s notice: Listening for client driver connections on port 28015
+2020-09-18T17:26:27.322302000 0.139749s notice: Listening for administrative HTTP connections on port 8080
+2020-09-18T17:26:27.322308000 0.139756s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-18T17:26:27.322310000 0.139758s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-18T17:26:27.322315000 0.139762s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-18T17:26:27.322319000 0.139766s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-18T17:26:27.322323000 0.139771s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-18T17:26:28.354859000 1.172293s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 2.
+2020-09-18T17:26:28.377775000 1.195209s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-20T10:36:28.484827000 0.083566s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-20T10:36:28.503564000 0.102297s notice: Running on Darwin 19.6.0 x86_64
+2020-09-20T10:36:28.503820000 0.102552s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-20T10:36:28.553415000 0.152146s info: Automatically using cache size of 1326 MB
+2020-09-20T10:36:28.556223000 0.154955s notice: Listening for intracluster connections on port 29015
+2020-09-20T10:36:28.572673000 0.171403s notice: Listening for client driver connections on port 28015
+2020-09-20T10:36:28.572741000 0.171472s notice: Listening for administrative HTTP connections on port 8080
+2020-09-20T10:36:28.572746000 0.171477s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-20T10:36:28.572806000 0.171536s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-20T10:36:28.572808000 0.171539s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-20T10:36:28.572818000 0.171548s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-20T10:36:28.572820000 0.171551s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-20T10:36:30.378162000 1.976876s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 3.
+2020-09-20T10:36:30.397997000 1.996711s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 3. Latest log index is 7.
+2020-09-20T12:39:43.692713000 5107.138156s notice: Server got SIGINT from pid 1231, uid 501; shutting down...
+2020-09-20T12:39:43.693092000 5107.138535s notice: Shutting down client connections...
+2020-09-20T12:39:43.693995000 5107.139437s notice: All client connections closed.
+2020-09-20T12:39:43.694002000 5107.139445s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-20T12:39:43.721144000 5107.166585s notice: Storage engine shut down.
+2020-09-20T13:52:34.367706000 0.061522s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-20T13:52:34.374872000 0.068683s notice: Running on Darwin 19.6.0 x86_64
+2020-09-20T13:52:34.374925000 0.068735s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-20T13:52:34.407208000 0.101006s info: Automatically using cache size of 198 MB
+2020-09-20T13:52:34.409318000 0.103115s notice: Listening for intracluster connections on port 29015
+2020-09-20T13:52:34.423700000 0.117492s notice: Listening for client driver connections on port 28015
+2020-09-20T13:52:34.423770000 0.117561s notice: Listening for administrative HTTP connections on port 8080
+2020-09-20T13:52:34.423772000 0.117563s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-20T13:52:34.423774000 0.117565s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-20T13:52:34.423834000 0.117625s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-20T13:52:34.423835000 0.117626s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-20T13:52:34.423843000 0.117634s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-20T13:52:35.531228000 1.224600s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 4.
+2020-09-20T13:52:35.561149000 1.254510s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 4. Latest log index is 11.
+2020-09-20T15:54:03.899762000 6440.025426s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Starting a new Raft election for term 1.
+2020-09-20T15:54:03.907136000 6440.032796s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Added replica on this server.
+2020-09-20T15:54:03.931521000 6440.057180s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T17:04:19.510834000 9716.667105s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 1.
+2020-09-20T17:04:19.516173000 9716.672441s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Added replica on this server.
+2020-09-20T17:04:19.546359000 9716.702630s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T17:04:23.876753000 9721.032987s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 1.
+2020-09-20T17:04:23.876902000 9721.033135s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Added replica on this server.
+2020-09-20T17:04:23.901125000 9721.057359s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T17:04:28.622042000 9725.778237s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 1.
+2020-09-20T17:04:28.622299000 9725.778494s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Added replica on this server.
+2020-09-20T17:04:28.649688000 9725.805883s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T17:05:08.348112000 9765.503979s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: Added replica on this server.
+2020-09-20T17:05:08.348172000 9765.504038s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: Starting a new Raft election for term 1.
+2020-09-20T17:05:08.369073000 9765.524939s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T17:05:13.372741000 9770.528565s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: Starting a new Raft election for term 1.
+2020-09-20T17:05:13.373039000 9770.528863s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: Added replica on this server.
+2020-09-20T17:05:13.389329000 9770.545153s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T17:06:16.559055000 9833.714354s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Starting a new Raft election for term 1.
+2020-09-20T17:06:16.559583000 9833.714882s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Added replica on this server.
+2020-09-20T17:06:16.576843000 9833.732142s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T17:06:22.287735000 9839.442986s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Starting a new Raft election for term 1.
+2020-09-20T17:06:22.287932000 9839.443183s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Added replica on this server.
+2020-09-20T17:06:22.302059000 9839.457310s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T17:07:26.162175000 9903.316895s info: Table 27299012-9155-4f79-b837-ff807765cbbf: Starting a new Raft election for term 1.
+2020-09-20T17:07:26.163058000 9903.317780s info: Table 27299012-9155-4f79-b837-ff807765cbbf: Added replica on this server.
+2020-09-20T17:07:26.180109000 9903.334829s info: Table 27299012-9155-4f79-b837-ff807765cbbf: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-20T18:33:49.009330000 13341.426041s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/27299012-9155-4f79-b837-ff807765cbbf
+2020-09-20T18:33:49.009337000 13341.426047s info: Table 27299012-9155-4f79-b837-ff807765cbbf: Deleted the table.
+2020-09-20T23:55:21.057815000 0.196012s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-20T23:55:21.075812000 0.214003s notice: Running on Darwin 19.6.0 x86_64
+2020-09-20T23:55:21.075941000 0.214130s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-20T23:55:21.122996000 0.261185s info: Automatically using cache size of 105 MB
+2020-09-20T23:55:21.131739000 0.269929s notice: Listening for intracluster connections on port 29015
+2020-09-20T23:55:21.271692000 0.409880s notice: Listening for client driver connections on port 28015
+2020-09-20T23:55:21.271776000 0.409963s notice: Listening for administrative HTTP connections on port 8080
+2020-09-20T23:55:21.271779000 0.409966s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-20T23:55:21.271781000 0.409968s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-20T23:55:21.271783000 0.409970s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-20T23:55:21.271785000 0.409972s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-20T23:55:21.271787000 0.409974s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-20T23:55:22.224027000 1.362204s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Starting a new Raft election for term 2.
+2020-09-20T23:55:22.244199000 1.382376s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-20T23:55:22.303075000 1.441251s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Starting a new Raft election for term 2.
+2020-09-20T23:55:22.315370000 1.453547s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-20T23:55:22.549802000 1.687975s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: Starting a new Raft election for term 2.
+2020-09-20T23:55:22.676557000 1.814730s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Starting a new Raft election for term 2.
+2020-09-20T23:55:22.682014000 1.820190s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-20T23:55:22.703152000 1.841324s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 5.
+2020-09-20T23:55:22.715850000 1.854022s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-20T23:55:22.850986000 1.989156s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: Starting a new Raft election for term 2.
+2020-09-20T23:55:22.859069000 1.997240s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 2.
+2020-09-20T23:55:22.940086000 2.078256s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 5. Latest log index is 15.
+2020-09-20T23:55:23.007788000 2.145957s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-20T23:55:23.021371000 2.159539s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-20T23:55:23.080897000 2.219065s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 2.
+2020-09-20T23:55:23.174420000 2.312587s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-20T23:55:23.194690000 2.332857s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 2.
+2020-09-20T23:55:23.488937000 2.627101s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-21T00:57:24.757973000 0.018556s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-21T00:57:24.764968000 0.025550s notice: Running on Darwin 19.6.0 x86_64
+2020-09-21T00:57:24.765118000 0.025698s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-21T00:57:24.804291000 0.064865s info: Automatically using cache size of 374 MB
+2020-09-21T00:57:24.804872000 0.065446s notice: Listening for intracluster connections on port 29015
+2020-09-21T00:57:24.907690000 0.168248s notice: Listening for client driver connections on port 28015
+2020-09-21T00:57:24.907736000 0.168294s notice: Listening for administrative HTTP connections on port 8080
+2020-09-21T00:57:24.907739000 0.168296s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-21T00:57:24.907836000 0.168394s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-21T00:57:24.907839000 0.168397s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-21T00:57:24.907841000 0.168398s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-21T00:57:24.907843000 0.168401s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-21T00:57:25.947167000 1.207576s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Starting a new Raft election for term 3.
+2020-09-21T00:57:25.965626000 1.226033s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: This server is Raft leader for term 3. Latest log index is 6.
+2020-09-21T00:57:26.328707000 1.589065s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Starting a new Raft election for term 3.
+2020-09-21T00:57:26.422116000 1.682462s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: This server is Raft leader for term 3. Latest log index is 7.
+2020-09-21T00:57:26.570852000 1.831178s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Starting a new Raft election for term 3.
+2020-09-21T00:57:26.584451000 1.844775s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: This server is Raft leader for term 3. Latest log index is 7.
+2020-09-21T00:57:26.641766000 1.902082s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 3.
+2020-09-21T00:57:26.656398000 1.916712s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 3. Latest log index is 7.
+2020-09-21T00:57:26.657281000 1.917595s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 6.
+2020-09-21T00:57:26.659809000 1.920122s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: Starting a new Raft election for term 3.
+2020-09-21T00:57:26.667570000 1.927882s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 3.
+2020-09-21T00:57:26.699708000 1.960016s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 6. Latest log index is 18.
+2020-09-21T00:57:26.715144000 1.975451s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: This server is Raft leader for term 3. Latest log index is 6.
+2020-09-21T00:57:26.727274000 1.987578s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 3. Latest log index is 6.
+2020-09-21T00:57:26.746337000 2.006639s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 3.
+2020-09-21T00:57:26.786183000 2.046479s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: Starting a new Raft election for term 3.
+2020-09-21T00:57:26.977401000 2.237673s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 3. Latest log index is 7.
+2020-09-21T00:57:27.001536000 2.261804s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: This server is Raft leader for term 3. Latest log index is 7.
+2020-09-21T10:44:44.817372000 0.133779s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-21T10:44:44.841234000 0.157634s notice: Running on Darwin 19.6.0 x86_64
+2020-09-21T10:44:44.841333000 0.157733s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-21T10:44:44.890274000 0.206673s info: Automatically using cache size of 645 MB
+2020-09-21T10:44:44.892185000 0.208583s notice: Listening for intracluster connections on port 29015
+2020-09-21T10:44:45.014152000 0.330549s notice: Listening for client driver connections on port 28015
+2020-09-21T10:44:45.014194000 0.330590s notice: Listening for administrative HTTP connections on port 8080
+2020-09-21T10:44:45.014196000 0.330593s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-21T10:44:45.014212000 0.330609s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-21T10:44:45.014214000 0.330611s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-21T10:44:45.014216000 0.330613s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-21T10:44:45.014218000 0.330615s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-21T10:44:46.198849000 1.515231s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 4.
+2020-09-21T10:44:46.218801000 1.535183s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 4. Latest log index is 9.
+2020-09-21T10:44:46.318487000 1.634868s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 7.
+2020-09-21T10:44:46.331650000 1.648030s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 7. Latest log index is 22.
+2020-09-21T10:44:46.505138000 1.821517s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: Starting a new Raft election for term 4.
+2020-09-21T10:44:46.512660000 1.829038s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 4.
+2020-09-21T10:44:46.631929000 1.948306s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: Starting a new Raft election for term 4.
+2020-09-21T10:44:46.631952000 1.948329s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 4.
+2020-09-21T10:44:46.637769000 1.954146s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: This server is Raft leader for term 4. Latest log index is 10.
+2020-09-21T10:44:46.654087000 1.970464s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 4. Latest log index is 10.
+2020-09-21T10:44:46.685332000 2.001709s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: This server is Raft leader for term 4. Latest log index is 9.
+2020-09-21T10:44:46.697365000 2.013741s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 4. Latest log index is 11.
+2020-09-21T10:44:46.797186000 2.113561s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Starting a new Raft election for term 4.
+2020-09-21T10:44:46.800920000 2.117295s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Starting a new Raft election for term 4.
+2020-09-21T10:44:46.918574000 2.234947s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Starting a new Raft election for term 4.
+2020-09-21T10:44:47.047433000 2.363805s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: This server is Raft leader for term 4. Latest log index is 10.
+2020-09-21T10:44:47.062499000 2.378870s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: This server is Raft leader for term 4. Latest log index is 11.
+2020-09-21T10:44:47.111860000 2.428231s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: This server is Raft leader for term 4. Latest log index is 11.
+2020-09-21T10:49:18.818968000 274.131984s notice: Server got SIGINT from pid 24137, uid 501; shutting down...
+2020-09-21T10:49:18.819199000 274.132216s notice: Shutting down client connections...
+2020-09-21T10:49:18.822085000 274.135101s notice: All client connections closed.
+2020-09-21T10:49:18.822111000 274.135127s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-21T10:49:18.856659000 274.169675s notice: Storage engine shut down.
+2020-09-21T20:27:39.046960000 0.023930s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-21T20:27:39.060369000 0.037334s notice: Running on Darwin 19.6.0 x86_64
+2020-09-21T20:27:39.060425000 0.037389s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-21T20:27:39.170455000 0.147418s info: Automatically using cache size of 162 MB
+2020-09-21T20:27:39.227004000 0.203967s notice: Listening for intracluster connections on port 29015
+2020-09-21T20:27:39.485933000 0.462892s notice: Listening for client driver connections on port 28015
+2020-09-21T20:27:39.485980000 0.462939s notice: Listening for administrative HTTP connections on port 8080
+2020-09-21T20:27:39.485982000 0.462941s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-21T20:27:39.486000000 0.462958s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-21T20:27:39.486002000 0.462960s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-21T20:27:39.486003000 0.462962s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-21T20:27:39.486005000 0.462963s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-21T20:27:40.433388000 1.410334s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: Starting a new Raft election for term 5.
+2020-09-21T20:27:40.466496000 1.443442s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: This server is Raft leader for term 5. Latest log index is 12.
+2020-09-21T20:27:40.558186000 1.535131s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Starting a new Raft election for term 5.
+2020-09-21T20:27:40.561375000 1.538319s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Starting a new Raft election for term 5.
+2020-09-21T20:27:40.563110000 1.540054s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 5.
+2020-09-21T20:27:40.583493000 1.560437s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: This server is Raft leader for term 5. Latest log index is 14.
+2020-09-21T20:27:40.601940000 1.578884s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: This server is Raft leader for term 5. Latest log index is 14.
+2020-09-21T20:27:40.615108000 1.592052s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 5. Latest log index is 13.
+2020-09-21T20:27:40.655101000 1.632044s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 5.
+2020-09-21T20:27:40.718440000 1.695383s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 5. Latest log index is 13.
+2020-09-21T20:27:41.031396000 2.008334s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: Starting a new Raft election for term 5.
+2020-09-21T20:27:41.099640000 2.076577s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 8.
+2020-09-21T20:27:41.108795000 2.085732s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 5.
+2020-09-21T20:27:41.248671000 2.225607s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: This server is Raft leader for term 5. Latest log index is 14.
+2020-09-21T20:27:41.257562000 2.234497s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Starting a new Raft election for term 5.
+2020-09-21T20:27:41.306093000 2.283027s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 8. Latest log index is 26.
+2020-09-21T20:27:41.324885000 2.301819s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 5. Latest log index is 14.
+2020-09-21T20:27:41.463963000 2.440896s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: This server is Raft leader for term 5. Latest log index is 14.
+2020-09-21T22:15:03.296949000 6384.982610s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 1.
+2020-09-21T22:15:03.305193000 6384.990854s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Added replica on this server.
+2020-09-21T22:15:03.327374000 6385.013034s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-22T10:50:03.742369000 19746.575503s notice: Server got SIGINT from pid 38553, uid 501; shutting down...
+2020-09-22T10:50:03.835261000 19746.668390s notice: Shutting down client connections...
+2020-09-22T10:50:03.876983000 19746.710110s notice: All client connections closed.
+2020-09-22T10:50:03.876995000 19746.710122s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-22T10:50:04.032387000 19746.865510s notice: Storage engine shut down.
+2020-09-22T20:13:16.816935000 0.016184s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-22T20:13:16.843901000 0.043126s notice: Running on Darwin 19.6.0 x86_64
+2020-09-22T20:13:16.843959000 0.043183s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-22T20:13:16.896081000 0.095304s info: Automatically using cache size of 153 MB
+2020-09-22T20:13:16.898163000 0.097386s notice: Listening for intracluster connections on port 29015
+2020-09-22T20:13:17.147582000 0.346802s notice: Listening for client driver connections on port 28015
+2020-09-22T20:13:17.147643000 0.346863s notice: Listening for administrative HTTP connections on port 8080
+2020-09-22T20:13:17.147647000 0.346866s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-22T20:13:17.147648000 0.346868s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-22T20:13:17.147668000 0.346888s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-22T20:13:17.147670000 0.346890s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-22T20:13:17.147672000 0.346891s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-22T20:13:18.085316000 1.284522s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Starting a new Raft election for term 6.
+2020-09-22T20:13:18.096047000 1.295253s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 6.
+2020-09-22T20:13:18.096066000 1.295272s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 6.
+2020-09-22T20:13:18.102860000 1.302066s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: This server is Raft leader for term 6. Latest log index is 18.
+2020-09-22T20:13:18.118106000 1.317312s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 6. Latest log index is 17.
+2020-09-22T20:13:18.129413000 1.328619s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 6. Latest log index is 17.
+2020-09-22T20:13:18.242246000 1.441450s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Starting a new Raft election for term 6.
+2020-09-22T20:13:18.257247000 1.456451s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: This server is Raft leader for term 6. Latest log index is 18.
+2020-09-22T20:13:18.300711000 1.499914s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 6.
+2020-09-22T20:13:18.316163000 1.515366s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 6. Latest log index is 18.
+2020-09-22T20:13:18.920516000 2.119712s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: Starting a new Raft election for term 6.
+2020-09-22T20:13:18.930723000 2.129918s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Starting a new Raft election for term 6.
+2020-09-22T20:13:18.947022000 2.146217s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 2.
+2020-09-22T20:13:18.965653000 2.164847s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 9.
+2020-09-22T20:13:19.059593000 2.258785s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: Starting a new Raft election for term 6.
+2020-09-22T20:13:19.325137000 2.524326s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: This server is Raft leader for term 6. Latest log index is 16.
+2020-09-22T20:13:19.339341000 2.538530s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: This server is Raft leader for term 6. Latest log index is 18.
+2020-09-22T20:13:19.362089000 2.561278s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-22T20:13:19.374943000 2.574132s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 9. Latest log index is 30.
+2020-09-22T20:13:19.387063000 2.586252s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: This server is Raft leader for term 6. Latest log index is 18.
+2020-09-22T21:59:39.707671000 6382.196977s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/e6d060a7-9d10-4b60-9053-882ece9f21b0
+2020-09-22T21:59:39.707677000 6382.196983s info: Table e6d060a7-9d10-4b60-9053-882ece9f21b0: Deleted the table.
+2020-09-22T21:59:43.165682000 6385.654955s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/2fe1a182-3ec7-42f2-9640-1021d1c09cb0
+2020-09-22T21:59:43.165720000 6385.654993s info: Table 2fe1a182-3ec7-42f2-9640-1021d1c09cb0: Deleted the table.
+2020-09-23T00:23:27.162651000 14437.984264s notice: Server got SIGINT from pid 71783, uid 501; shutting down...
+2020-09-23T00:23:27.163069000 14437.984680s notice: Shutting down client connections...
+2020-09-23T00:23:27.175567000 14437.997178s notice: All client connections closed.
+2020-09-23T00:23:27.175698000 14437.997309s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-23T00:23:27.234601000 14438.056210s notice: Storage engine shut down.
+2020-09-23T00:32:35.059895000 0.032573s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-23T00:32:35.067250000 0.039926s notice: Running on Darwin 19.6.0 x86_64
+2020-09-23T00:32:35.067289000 0.039964s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-23T00:32:35.171505000 0.144179s info: Automatically using cache size of 1373 MB
+2020-09-23T00:32:35.172754000 0.145428s notice: Listening for intracluster connections on port 29015
+2020-09-23T00:32:35.303491000 0.276163s notice: Listening for client driver connections on port 28015
+2020-09-23T00:32:35.303633000 0.276305s notice: Listening for administrative HTTP connections on port 8080
+2020-09-23T00:32:35.303655000 0.276327s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-23T00:32:35.303656000 0.276328s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-23T00:32:35.303657000 0.276330s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-23T00:32:35.303659000 0.276331s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-23T00:32:35.303660000 0.276332s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-23T00:32:36.268430000 1.241094s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 7.
+2020-09-23T00:32:36.288238000 1.260901s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 7. Latest log index is 21.
+2020-09-23T00:32:36.315510000 1.288172s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 7.
+2020-09-23T00:32:36.335872000 1.308534s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 7. Latest log index is 21.
+2020-09-23T00:32:36.496960000 1.469621s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 3.
+2020-09-23T00:32:36.543078000 1.515738s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 3. Latest log index is 6.
+2020-09-23T00:32:36.567210000 1.539870s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Starting a new Raft election for term 7.
+2020-09-23T00:32:36.628129000 1.600789s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Starting a new Raft election for term 7.
+2020-09-23T00:32:36.711920000 1.684579s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 10.
+2020-09-23T00:32:36.766158000 1.738816s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 7.
+2020-09-23T00:32:36.814326000 1.786983s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Starting a new Raft election for term 7.
+2020-09-23T00:32:36.901840000 1.874496s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: This server is Raft leader for term 7. Latest log index is 22.
+2020-09-23T00:32:36.938571000 1.911228s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: This server is Raft leader for term 7. Latest log index is 21.
+2020-09-23T00:32:37.077334000 2.049990s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 10. Latest log index is 34.
+2020-09-23T00:32:37.107809000 2.080464s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 7. Latest log index is 21.
+2020-09-23T00:32:37.146661000 2.119316s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: This server is Raft leader for term 7. Latest log index is 21.
+2020-09-23T11:12:21.985162000 7176.066795s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/c2f5ec7f-af5e-45e9-b749-c96fdc02666b
+2020-09-23T11:12:21.985181000 7176.066808s info: Table c2f5ec7f-af5e-45e9-b749-c96fdc02666b: Deleted the table.
+2020-09-23T11:12:29.738821000 7183.820343s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/39ed65d5-ecb5-4410-9dad-f73a7d77ce60
+2020-09-23T11:12:29.738829000 7183.820350s info: Table 39ed65d5-ecb5-4410-9dad-f73a7d77ce60: Deleted the table.
+2020-09-23T11:12:35.824588000 7189.906028s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: Starting a new Raft election for term 1.
+2020-09-23T11:12:35.824906000 7189.906345s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: Added replica on this server.
+2020-09-23T11:12:35.845255000 7189.926695s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-23T11:31:17.562626000 8311.633664s notice: Server got SIGINT from pid 77230, uid 501; shutting down...
+2020-09-23T11:31:17.568621000 8311.639658s notice: Shutting down client connections...
+2020-09-23T11:31:17.571401000 8311.642439s notice: All client connections closed.
+2020-09-23T11:31:17.571414000 8311.642451s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-23T11:31:17.715790000 8311.786826s notice: Storage engine shut down.
+2020-09-23T17:18:07.941492000 0.021522s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-23T17:18:07.956691000 0.036719s notice: Running on Darwin 19.6.0 x86_64
+2020-09-23T17:18:07.956751000 0.036777s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-23T17:18:08.017898000 0.097925s info: Automatically using cache size of 428 MB
+2020-09-23T17:18:08.019383000 0.099409s notice: Listening for intracluster connections on port 29015
+2020-09-23T17:18:08.223765000 0.303789s notice: Listening for client driver connections on port 28015
+2020-09-23T17:18:08.223995000 0.304019s notice: Listening for administrative HTTP connections on port 8080
+2020-09-23T17:18:08.223998000 0.304022s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-23T17:18:08.223999000 0.304023s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-23T17:18:08.224011000 0.304035s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-23T17:18:08.224013000 0.304037s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-23T17:18:08.224014000 0.304038s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-23T17:18:09.283801000 1.363819s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Starting a new Raft election for term 8.
+2020-09-23T17:18:09.295175000 1.375188s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: This server is Raft leader for term 8. Latest log index is 25.
+2020-09-23T17:18:09.321102000 1.401115s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 8.
+2020-09-23T17:18:09.333395000 1.413409s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 8. Latest log index is 24.
+2020-09-23T17:18:09.559942000 1.639953s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 11.
+2020-09-23T17:18:09.693942000 1.773951s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 4.
+2020-09-23T17:18:09.757319000 1.837328s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 8.
+2020-09-23T17:18:09.768612000 1.848621s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 11. Latest log index is 38.
+2020-09-23T17:18:09.780437000 1.860445s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 4. Latest log index is 9.
+2020-09-23T17:18:09.822191000 1.902199s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 8. Latest log index is 24.
+2020-09-23T17:18:09.893166000 1.973174s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: Starting a new Raft election for term 2.
+2020-09-23T17:18:09.982402000 2.062409s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 8.
+2020-09-23T17:18:10.171154000 2.251159s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-23T17:18:10.183084000 2.263088s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 8. Latest log index is 24.
+2020-09-23T17:18:24.169606000 16.249473s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/d4731023-780b-4c9a-8a9a-3ea8d93ae099
+2020-09-23T17:18:24.169613000 16.249480s info: Table d4731023-780b-4c9a-8a9a-3ea8d93ae099: Deleted the table.
+2020-09-23T17:18:26.733096000 18.812938s info: Table 6aa67e10-3506-47bb-9c99-007bae4a8284: Starting a new Raft election for term 1.
+2020-09-23T17:18:26.733768000 18.813609s info: Table 6aa67e10-3506-47bb-9c99-007bae4a8284: Added replica on this server.
+2020-09-23T17:18:26.755987000 18.835829s info: Table 6aa67e10-3506-47bb-9c99-007bae4a8284: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-23T17:33:23.080720000 915.157696s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/6aa67e10-3506-47bb-9c99-007bae4a8284
+2020-09-23T17:33:23.080728000 915.157703s info: Table 6aa67e10-3506-47bb-9c99-007bae4a8284: Deleted the table.
+2020-09-23T17:33:25.041633000 917.118591s info: Table 9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117: Starting a new Raft election for term 1.
+2020-09-23T17:33:25.041909000 917.118866s info: Table 9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117: Added replica on this server.
+2020-09-23T17:33:25.059974000 917.136932s info: Table 9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-23T17:34:26.141744000 978.218142s notice: Server got SIGINT from pid 5081, uid 501; shutting down...
+2020-09-23T17:34:26.141820000 978.218217s notice: Shutting down client connections...
+2020-09-23T17:34:26.142388000 978.218786s notice: All client connections closed.
+2020-09-23T17:34:26.143200000 978.219598s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-23T17:34:26.187942000 978.264340s notice: Storage engine shut down.
+2020-09-23T19:03:41.856934000 0.071470s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-23T19:03:41.902771000 0.117304s notice: Running on Darwin 19.6.0 x86_64
+2020-09-23T19:03:41.902825000 0.117356s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-23T19:03:41.939315000 0.153847s info: Automatically using cache size of 883 MB
+2020-09-23T19:03:41.940733000 0.155264s notice: Listening for intracluster connections on port 29015
+2020-09-23T19:03:42.089755000 0.304285s notice: Listening for client driver connections on port 28015
+2020-09-23T19:03:42.089852000 0.304381s notice: Listening for administrative HTTP connections on port 8080
+2020-09-23T19:03:42.089855000 0.304384s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-23T19:03:42.089856000 0.304385s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-23T19:03:42.090032000 0.304561s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-23T19:03:42.090035000 0.304564s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-23T19:03:42.090037000 0.304567s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-23T19:03:43.065545000 1.280065s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 9.
+2020-09-23T19:03:43.089535000 1.304055s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 9. Latest log index is 28.
+2020-09-23T19:03:43.261214000 1.475733s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 9.
+2020-09-23T19:03:43.275847000 1.490366s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 9. Latest log index is 28.
+2020-09-23T19:03:43.308297000 1.522815s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 5.
+2020-09-23T19:03:43.323717000 1.538235s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 5. Latest log index is 13.
+2020-09-23T19:03:43.508513000 1.723029s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 9.
+2020-09-23T19:03:43.589825000 1.804341s info: Table 9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117: Starting a new Raft election for term 2.
+2020-09-23T19:03:43.603111000 1.817627s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 9. Latest log index is 27.
+2020-09-23T19:03:43.645915000 1.860431s info: Table 9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-23T19:03:43.859446000 2.073959s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 12.
+2020-09-23T19:03:43.870685000 2.085198s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: Starting a new Raft election for term 3.
+2020-09-23T19:03:44.173251000 2.387761s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 12. Latest log index is 42.
+2020-09-23T19:03:44.210127000 2.424637s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: This server is Raft leader for term 3. Latest log index is 7.
+2020-09-24T10:17:11.451543000 5984.684604s notice: Server got SIGINT from pid 6289, uid 501; shutting down...
+2020-09-24T10:17:11.484133000 5984.717189s notice: Shutting down client connections...
+2020-09-24T10:17:11.592222000 5984.825277s notice: All client connections closed.
+2020-09-24T10:17:11.592235000 5984.825289s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-24T10:17:11.777977000 5985.011029s notice: Storage engine shut down.
+2020-09-24T10:17:12.211353000 0.163314s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-24T10:17:12.232329000 0.184287s notice: Running on Darwin 19.6.0 x86_64
+2020-09-24T10:17:12.232384000 0.184341s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-24T10:17:12.328977000 0.280932s info: Automatically using cache size of 236 MB
+2020-09-24T10:17:12.336207000 0.288162s notice: Listening for intracluster connections on port 29015
+2020-09-24T10:17:12.701396000 0.653345s notice: Listening for client driver connections on port 28015
+2020-09-24T10:17:12.702070000 0.654019s notice: Listening for administrative HTTP connections on port 8080
+2020-09-24T10:17:12.702074000 0.654023s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-24T10:17:12.702075000 0.654024s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-24T10:17:12.702101000 0.654050s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-24T10:17:12.702103000 0.654052s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-24T10:17:12.702105000 0.654054s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-24T10:17:13.711167000 1.663099s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 6.
+2020-09-24T10:17:13.729088000 1.681019s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 6. Latest log index is 17.
+2020-09-24T10:17:13.816101000 1.768031s info: Table 9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117: Starting a new Raft election for term 3.
+2020-09-24T10:17:13.828615000 1.780545s info: Table 9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117: This server is Raft leader for term 3. Latest log index is 6.
+2020-09-24T10:17:13.898857000 1.850786s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: Starting a new Raft election for term 4.
+2020-09-24T10:17:13.915251000 1.867180s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: This server is Raft leader for term 4. Latest log index is 10.
+2020-09-24T10:17:14.251449000 2.203372s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 13.
+2020-09-24T10:17:14.322544000 2.274466s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 10.
+2020-09-24T10:17:14.322840000 2.274762s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 13. Latest log index is 46.
+2020-09-24T10:17:14.346130000 2.298051s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 10.
+2020-09-24T10:17:14.377236000 2.329157s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 10. Latest log index is 32.
+2020-09-24T10:17:14.477473000 2.429391s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 10.
+2020-09-24T10:17:14.620146000 2.572062s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 10. Latest log index is 32.
+2020-09-24T10:17:14.930829000 2.882742s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 10. Latest log index is 31.
+2020-09-24T10:19:36.299362000 144.248864s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe
+2020-09-24T10:19:36.299367000 144.248869s info: Table a9b3d5f3-f2e8-42d4-a06a-3674548ce1fe: Deleted the table.
+2020-09-24T10:19:38.341395000 146.290862s info: Table b5410486-3ba5-413e-8744-aef0269b9343: Starting a new Raft election for term 1.
+2020-09-24T10:19:38.341567000 146.291035s info: Table b5410486-3ba5-413e-8744-aef0269b9343: Added replica on this server.
+2020-09-24T10:19:38.358011000 146.307478s info: Table b5410486-3ba5-413e-8744-aef0269b9343: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-24T10:19:45.175276000 153.124627s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117
+2020-09-24T10:19:45.175283000 153.124634s info: Table 9e42a8a1-b1dc-4fb8-b9f3-2c1b812eb117: Deleted the table.
+2020-09-24T10:19:47.628817000 155.578127s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: Starting a new Raft election for term 1.
+2020-09-24T10:19:47.629072000 155.578381s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: Added replica on this server.
+2020-09-24T10:19:47.643250000 155.592559s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: This server is Raft leader for term 1. Latest log index is 0.
+2020-09-24T10:37:07.546645000 1195.488900s notice: Server got SIGINT from pid 6284, uid 501; shutting down...
+2020-09-24T10:37:07.546746000 1195.489000s notice: Shutting down client connections...
+2020-09-24T10:37:07.547116000 1195.489370s notice: All client connections closed.
+2020-09-24T10:37:07.547122000 1195.489376s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-24T10:37:07.590405000 1195.532659s notice: Storage engine shut down.
+2020-09-24T14:18:05.597868000 1.146397s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-09-24T14:18:05.633226000 1.181751s notice: Running on Darwin 19.6.0 x86_64
+2020-09-24T14:18:05.633267000 1.181791s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-09-24T14:18:05.749839000 1.298361s info: Automatically using cache size of 100 MB
+2020-09-24T14:18:05.749845000 1.298367s warn: Cache size is very low and may impact performance.
+2020-09-24T14:18:05.764137000 1.312660s notice: Listening for intracluster connections on port 29015
+2020-09-24T14:18:06.026658000 1.575177s notice: Listening for client driver connections on port 28015
+2020-09-24T14:18:06.026759000 1.575278s notice: Listening for administrative HTTP connections on port 8080
+2020-09-24T14:18:06.026762000 1.575280s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-09-24T14:18:06.026764000 1.575282s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-09-24T14:18:06.026766000 1.575284s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-09-24T14:18:06.026768000 1.575286s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-09-24T14:18:06.026770000 1.575288s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-09-24T14:18:07.057341000 2.605847s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 11.
+2020-09-24T14:18:07.087010000 2.635515s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 11. Latest log index is 34.
+2020-09-24T14:18:07.172210000 2.720714s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 14.
+2020-09-24T14:18:07.211985000 2.760489s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 14. Latest log index is 49.
+2020-09-24T14:18:07.267793000 2.816296s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: Starting a new Raft election for term 2.
+2020-09-24T14:18:07.280551000 2.829054s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-24T14:18:07.311097000 2.859598s info: Table b5410486-3ba5-413e-8744-aef0269b9343: Starting a new Raft election for term 2.
+2020-09-24T14:18:07.348816000 2.897318s info: Table b5410486-3ba5-413e-8744-aef0269b9343: This server is Raft leader for term 2. Latest log index is 3.
+2020-09-24T14:18:07.694507000 3.243004s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 7.
+2020-09-24T14:18:07.745094000 3.293590s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 11.
+2020-09-24T14:18:07.762524000 3.311020s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 11.
+2020-09-24T14:18:08.211845000 3.760335s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 7. Latest log index is 21.
+2020-09-24T14:18:08.444318000 3.992805s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 11. Latest log index is 35.
+2020-09-24T14:18:08.458834000 4.007321s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 11. Latest log index is 35.
+2020-09-24T15:23:54.806693000 3950.305167s notice: Server got SIGINT from pid 18095, uid 501; shutting down...
+2020-09-24T15:23:54.806848000 3950.305321s notice: Shutting down client connections...
+2020-09-24T15:23:54.808393000 3950.306867s notice: All client connections closed.
+2020-09-24T15:23:54.808398000 3950.306872s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-09-24T15:23:54.852813000 3950.351286s notice: Storage engine shut down.
+2020-10-03T17:11:58.847651000 0.373312s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-10-03T17:11:58.877299000 0.402954s notice: Running on Darwin 19.6.0 x86_64
+2020-10-03T17:11:58.877389000 0.403043s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-10-03T17:11:58.953556000 0.479208s info: Automatically using cache size of 1285 MB
+2020-10-03T17:11:58.963097000 0.488748s notice: Listening for intracluster connections on port 29015
+2020-10-03T17:11:59.258947000 0.784589s notice: Listening for client driver connections on port 28015
+2020-10-03T17:11:59.259006000 0.784648s notice: Listening for administrative HTTP connections on port 8080
+2020-10-03T17:11:59.259009000 0.784651s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-10-03T17:11:59.259025000 0.784666s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-10-03T17:11:59.259027000 0.784668s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-10-03T17:11:59.259029000 0.784670s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-10-03T17:11:59.259031000 0.784672s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-10-03T17:12:00.201020000 1.726633s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 15.
+2020-10-03T17:12:00.222046000 1.747659s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 15. Latest log index is 53.
+2020-10-03T17:12:00.398674000 1.924281s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: Starting a new Raft election for term 3.
+2020-10-03T17:12:00.411966000 1.937573s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: This server is Raft leader for term 3. Latest log index is 6.
+2020-10-03T17:12:00.589206000 2.114808s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 12.
+2020-10-03T17:12:00.623400000 2.149002s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 12.
+2020-10-03T17:12:00.679024000 2.204624s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 12. Latest log index is 38.
+2020-10-03T17:12:00.728562000 2.254160s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 12. Latest log index is 38.
+2020-10-03T17:12:00.740748000 2.266346s info: Table b5410486-3ba5-413e-8744-aef0269b9343: Starting a new Raft election for term 3.
+2020-10-03T17:12:00.842355000 2.367949s info: Table b5410486-3ba5-413e-8744-aef0269b9343: This server is Raft leader for term 3. Latest log index is 6.
+2020-10-03T17:12:00.882180000 2.407773s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 8.
+2020-10-03T17:12:00.986317000 2.511907s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 12.
+2020-10-03T17:12:01.238919000 2.764502s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 8. Latest log index is 25.
+2020-10-03T17:12:01.253082000 2.778664s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 12. Latest log index is 39.
+2020-10-03T17:38:13.631131000 1574.643104s notice: Server got SIGINT from pid 47945, uid 501; shutting down...
+2020-10-03T17:38:13.631301000 1574.643274s notice: Shutting down client connections...
+2020-10-03T17:38:13.652141000 1574.664113s notice: All client connections closed.
+2020-10-03T17:38:13.652149000 1574.664120s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-10-03T17:38:13.678586000 1574.690557s notice: Storage engine shut down.
+2020-10-03T17:38:14.560688000 0.050146s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-10-03T17:38:14.572254000 0.061710s notice: Running on Darwin 19.6.0 x86_64
+2020-10-03T17:38:14.572294000 0.061749s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-10-03T17:38:14.612827000 0.102281s info: Automatically using cache size of 100 MB
+2020-10-03T17:38:14.612833000 0.102287s warn: Cache size does not leave much memory for server and query overhead (available memory: 1031 MB).
+2020-10-03T17:38:14.612837000 0.102291s warn: Cache size is very low and may impact performance.
+2020-10-03T17:38:14.613672000 0.103127s notice: Listening for intracluster connections on port 29015
+2020-10-03T17:38:14.733808000 0.223258s notice: Listening for client driver connections on port 28015
+2020-10-03T17:38:14.733850000 0.223300s notice: Listening for administrative HTTP connections on port 8080
+2020-10-03T17:38:14.733852000 0.223302s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-10-03T17:38:14.733853000 0.223303s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-10-03T17:38:14.733944000 0.223394s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-10-03T17:38:14.733946000 0.223396s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-10-03T17:38:14.733947000 0.223397s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-10-03T17:38:15.748305000 1.237725s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: Starting a new Raft election for term 4.
+2020-10-03T17:38:15.762434000 1.251853s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: This server is Raft leader for term 4. Latest log index is 10.
+2020-10-03T17:38:15.788040000 1.277459s info: Table b5410486-3ba5-413e-8744-aef0269b9343: Starting a new Raft election for term 4.
+2020-10-03T17:38:15.800811000 1.290229s info: Table b5410486-3ba5-413e-8744-aef0269b9343: This server is Raft leader for term 4. Latest log index is 10.
+2020-10-03T17:38:15.901991000 1.391406s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 16.
+2020-10-03T17:38:15.902024000 1.391439s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 9.
+2020-10-03T17:38:15.927720000 1.417135s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 13.
+2020-10-03T17:38:15.927798000 1.417212s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 16. Latest log index is 57.
+2020-10-03T17:38:15.940666000 1.430080s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 9. Latest log index is 29.
+2020-10-03T17:38:15.955549000 1.444963s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 13. Latest log index is 42.
+2020-10-03T17:38:16.447541000 1.936940s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 13.
+2020-10-03T17:38:16.622758000 2.112152s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 13.
+2020-10-03T17:38:16.737667000 2.227058s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 13. Latest log index is 42.
+2020-10-03T17:38:16.981194000 2.470577s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 13. Latest log index is 42.
+2020-10-04T20:05:28.904155000 22979.579114s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/b42eddf2-7da4-41b8-9d3f-8b87b62a286c
+2020-10-04T20:05:28.904169000 22979.579125s info: Table b42eddf2-7da4-41b8-9d3f-8b87b62a286c: Deleted the table.
+2020-10-04T20:05:31.197933000 22981.872862s info: Table f5585705-7363-4d27-8492-eaf7ab89f59d: Starting a new Raft election for term 1.
+2020-10-04T20:05:31.198735000 22981.873663s info: Table f5585705-7363-4d27-8492-eaf7ab89f59d: Added replica on this server.
+2020-10-04T20:05:31.216898000 22981.891826s info: Table f5585705-7363-4d27-8492-eaf7ab89f59d: This server is Raft leader for term 1. Latest log index is 0.
+2020-10-04T20:05:45.400086000 22996.074842s notice: Removing file /Users/furkan/Developer/moya-server/rethinkdb_data/b5410486-3ba5-413e-8744-aef0269b9343
+2020-10-04T20:05:45.400121000 22996.074877s info: Table b5410486-3ba5-413e-8744-aef0269b9343: Deleted the table.
+2020-10-04T20:05:47.610661000 22998.285390s info: Table 5f63d039-f62c-4379-bfd9-e79da6e98016: Starting a new Raft election for term 1.
+2020-10-04T20:05:47.610963000 22998.285692s info: Table 5f63d039-f62c-4379-bfd9-e79da6e98016: Added replica on this server.
+2020-10-04T20:05:47.625377000 22998.300106s info: Table 5f63d039-f62c-4379-bfd9-e79da6e98016: This server is Raft leader for term 1. Latest log index is 0.
+2020-10-05T09:59:56.826094000 37174.771138s notice: Server got SIGINT from pid 47945, uid 501; shutting down...
+2020-10-05T09:59:56.838396000 37174.783438s notice: Shutting down client connections...
+2020-10-05T09:59:56.946157000 37174.891197s notice: All client connections closed.
+2020-10-05T09:59:56.946169000 37174.891208s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-10-05T09:59:57.095075000 37175.040113s notice: Storage engine shut down.
+2020-10-05T21:16:30.319924000 0.077745s notice: Running rethinkdb 2.4.0 (CLANG 11.0.0 (clang-1100.0.33.16))...
+2020-10-05T21:16:30.348074000 0.105888s notice: Running on Darwin 19.6.0 x86_64
+2020-10-05T21:16:30.349374000 0.107187s notice: Loading data from directory /Users/furkan/Developer/moya-server/rethinkdb_data
+2020-10-05T21:16:30.422894000 0.180707s info: Automatically using cache size of 223 MB
+2020-10-05T21:16:30.426609000 0.184421s notice: Listening for intracluster connections on port 29015
+2020-10-05T21:16:30.652300000 0.410110s notice: Listening for client driver connections on port 28015
+2020-10-05T21:16:30.652448000 0.410258s notice: Listening for administrative HTTP connections on port 8080
+2020-10-05T21:16:30.652451000 0.410260s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2020-10-05T21:16:30.652453000 0.410262s notice: Listening on driver addresses: 127.0.0.1, ::1
+2020-10-05T21:16:30.652454000 0.410264s notice: Listening on http addresses: 127.0.0.1, ::1
+2020-10-05T21:16:30.652456000 0.410265s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2020-10-05T21:16:30.652538000 0.410347s notice: Server ready, "Furkan_MacBook_Pro_local_fkb" c046117f-5e23-45b8-b5ca-a65742a3b36c
+2020-10-05T21:16:31.553802000 1.311602s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: Starting a new Raft election for term 14.
+2020-10-05T21:16:31.573694000 1.331493s info: Table 2f8ef583-e92b-48a5-9fe9-9898f4c3f9da: This server is Raft leader for term 14. Latest log index is 45.
+2020-10-05T21:16:32.058633000 1.816427s info: Table f5585705-7363-4d27-8492-eaf7ab89f59d: Starting a new Raft election for term 2.
+2020-10-05T21:16:32.084659000 1.842454s info: Table f5585705-7363-4d27-8492-eaf7ab89f59d: This server is Raft leader for term 2. Latest log index is 3.
+2020-10-05T21:16:32.120632000 1.878426s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: Starting a new Raft election for term 17.
+2020-10-05T21:16:32.147913000 1.905707s info: Table 6d3862d1-ca04-4f46-88c9-302efaa76230: This server is Raft leader for term 17. Latest log index is 60.
+2020-10-05T21:16:32.199688000 1.957481s info: Table 5f63d039-f62c-4379-bfd9-e79da6e98016: Starting a new Raft election for term 2.
+2020-10-05T21:16:32.217022000 1.974814s info: Table 5f63d039-f62c-4379-bfd9-e79da6e98016: This server is Raft leader for term 2. Latest log index is 3.
+2020-10-05T21:16:32.232524000 1.990316s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: Starting a new Raft election for term 14.
+2020-10-05T21:16:32.282927000 2.040719s info: Table 1e49c1c2-8c14-4697-aa26-5ab6663be454: This server is Raft leader for term 14. Latest log index is 46.
+2020-10-05T21:16:32.524974000 2.282764s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: Starting a new Raft election for term 14.
+2020-10-05T21:16:32.570772000 2.328562s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: Starting a new Raft election for term 10.
+2020-10-05T21:16:32.861227000 2.619013s info: Table 8b7730f8-1dd8-472f-b2f0-a78500fe94bc: This server is Raft leader for term 14. Latest log index is 46.
+2020-10-05T21:16:33.127140000 2.884923s info: Table 9271d05d-26e7-4650-92ad-d2f66757597b: This server is Raft leader for term 10. Latest log index is 32.
+2020-10-05T22:00:13.502713000 2623.231981s notice: Server got SIGINT from pid 68776, uid 501; shutting down...
+2020-10-05T22:00:13.502909000 2623.232177s notice: Shutting down client connections...
+2020-10-05T22:00:13.510133000 2623.239401s notice: All client connections closed.
+2020-10-05T22:00:13.510141000 2623.239408s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2020-10-05T22:00:13.644742000 2623.374008s notice: Storage engine shut down.
