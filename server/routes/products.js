@@ -28,8 +28,10 @@ let sendEmail = (message) => {
   exec(
     `curl -s --user 'api:${api}' ${domain} \
   -F from='mailgun@mg.moyaoto.com.tr' \
-  -F to='furkandoganktf@gmail.com' \
+  -F to='metin@feynlab.com.tr' \
   -F to='burak@matrixmc.com.tr' \
+  -F to='sezer@matrixmc.com.tr' \
+  -F to='oiyigungor@filmandfoil.com.tr' \
   -F subject='Stok Limiti' \
   -F text='${message}'`,
     (error, stdout, stderr) => {
@@ -100,6 +102,7 @@ router.put("/:productId", checkAuth, async (req, res) => {
     let user = req.userData.userName;
     var productId = req.params.productId;
     const name = req.body.name;
+    let newStock = req.body.stock;
     if (!name) {
       res.status(400).send({ message: "Ürün adı boş olamaz!" });
     } else {
@@ -111,8 +114,8 @@ router.put("/:productId", checkAuth, async (req, res) => {
         } else {
           await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
           res.status(200).send({ message: "Ürün güncellendi" });
-          if (parseInt(cursor.stock) <= parseInt(cursor.threshold)) {
-            sendEmail(`${cursor.name} isimli ürün belirlenen limitin altında. Güncel stok: ${cursor.stock}`);
+          if (parseInt(newStock) <= parseInt(cursor.threshold)) {
+            sendEmail(`${cursor.name} isimli ürün belirlenen limitin altında. Güncel stok: ${newStock}`);
           }
           let timeStamp = Date.now();
           let date = new Date(timeStamp);
@@ -125,8 +128,8 @@ router.put("/:productId", checkAuth, async (req, res) => {
       } else {
         await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
         res.status(200).send({ message: "Ürün güncellendi" });
-        if (parseInt(cursor.stock) <= parseInt(cursor.threshold)) {
-          sendEmail(`${cursor.name} isimli ürün belirlenen limitin altında. Güncel stok: ${cursor.stock}`);
+        if (parseInt(newStock) <= parseInt(cursor.threshold)) {
+          sendEmail(`${cursor.name} isimli ürün belirlenen limitin altında. Güncel stok: ${newStock}`);
         }
         let timeStamp = Date.now();
         let date = new Date(timeStamp);
