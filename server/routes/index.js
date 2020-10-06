@@ -21,10 +21,8 @@ router.post("/users/authenticate", async (req, res) => {
       res.status(400).send({ message: "Kullanıcı adı veya şifre boş olamaz!" });
     } else {
       password = crypto.createHash("md5").update(req.body.password).digest("hex");
-      console.log({ userName: username, password: password });
       let cursor = await db.table("users").filter({ userName: username, password: password }).run(req.app._rdbConn);
       let user = await cursor.toArray();
-      console.log(user);
       if (user.length !== 0) {
         const token = jwt.sign(
           {
