@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import checkAuth from "../middleware/checkAuth";
 import { print } from "../helpers/printErrors";
+
 var router = express.Router();
 
 dotenv.config();
@@ -107,6 +108,9 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
       res.status(400).send({ message: "Kullanıcı adı veya şifre boş olamaz!" });
     } else {
       let cursor = await db.table("users").get(userId).run(req.app._rdbConn);
+      if (user !== cursor.userName){
+        res.status(400).send({ message: "Başka bir kullanıcıyı güncelleyemezsiniz!" });
+      }
       if (cursor.userName !== username) {
         let result = await db.table("users").filter(r.row("userName").eq(username)).count().eq(1).run(req.app._rdbConn);
         if (result) {
@@ -124,7 +128,7 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
           let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
-            .insert({ userName: user, log: cursor.userName + " kullancısı güncellendi!", timeStamp: timeStamp, date: dateString })
+            .insert({ userName: user, log: cursor.userName + " kullanıcısı güncellendi!", timeStamp: timeStamp, date: dateString })
             .run(req.app._rdbConn);
         }
       } else {

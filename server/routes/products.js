@@ -4,8 +4,11 @@ import r from "rethinkdb";
 import checkAuth from "../middleware/checkAuth";
 import { print } from "../helpers/printErrors";
 var router = express.Router();
+import { exec } from "child_process";
 
 dotenv.config();
+const api = process.env.API;
+const domain = process.env.DOMAIN;
 
 const db = r.db("moya");
 
@@ -19,6 +22,28 @@ let typeConstants = {
   box: "Kutulu Ürün",
   material: "Hammadde",
   package: "Ambalaj",
+};
+
+let sendEmail = (message) => {
+  exec(
+    `curl -s --user 'api:${api}' ${domain} \
+  -F from='mailgun@mg.moyaoto.com.tr' \
+  -F to='furkandoganktf@gmail.com' \
+  -F to='burak@matrixmc.com.tr' \
+  -F subject='Stok Limiti' \
+  -F text='${message}'`,
+    (error, stdout, stderr) => {
+      if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
+    }
+  );
 };
 
 router.post("/", checkAuth, async (req, res) => {
@@ -84,10 +109,10 @@ router.put("/:productId", checkAuth, async (req, res) => {
         if (result) {
           res.status(400).send({ message: "Bu ürün zaten kullanımda." });
         } else {
-          let cursor = await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
+          await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
           res.status(200).send({ message: "Ürün güncellendi" });
           if (parseInt(cursor.stock) <= parseInt(cursor.threshold)) {
-            // !TODO - Email
+            sendEmail(`${cursor.name} isimli ürün belirlenen limitin altında. Güncel stok: ${cursor.stock}`);
           }
           let timeStamp = Date.now();
           let date = new Date(timeStamp);
@@ -100,9 +125,8 @@ router.put("/:productId", checkAuth, async (req, res) => {
       } else {
         await db.table("products").get(productId).update(req.body).run(req.app._rdbConn);
         res.status(200).send({ message: "Ürün güncellendi" });
-        console.log(cursor);
         if (parseInt(cursor.stock) <= parseInt(cursor.threshold)) {
-          // !TODO - Email
+          sendEmail(`${cursor.name} isimli ürün belirlenen limitin altında. Güncel stok: ${cursor.stock}`);
         }
         let timeStamp = Date.now();
         let date = new Date(timeStamp);
@@ -173,7 +197,7 @@ router.post("/package", checkAuth, async (req, res) => {
         })
         .run(req.app._rdbConn);
       if (parseInt(value) <= parseInt(product.threshold)) {
-        // !TODO - Email
+        sendEmail(`${product.name} isimli ürün belirlenen limitin altında. Güncel stok: ${value}`);
       }
       await db.table("products").get(key).update({ stock: value }).run(req.app._rdbConn);
     }
