@@ -32,6 +32,8 @@ let sendEmail = (message) => {
   -F to='burak@matrixmc.com.tr' \
   -F to='sezer@matrixmc.com.tr' \
   -F to='oiyigungor@filmandfoil.com.tr' \
+  -F to='muhasebe@filmamdfoil.com.tr' \
+  -F to='miyigungor@filmandfoil.com.tr' \
   -F subject='Stok Limiti' \
   -F text='${message}'`,
     (error, stdout, stderr) => {
