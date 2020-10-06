@@ -57,7 +57,7 @@ router.post("/users/register", checkAuth, async (req, res) => {
     } else {
       let result = await db.table("users").filter(r.row("userName").eq(username)).count().eq(1).run(req.app._rdbConn);
       if (result) {
-        res.status(400).send({ message: "Bu userName zaten kullanımda." });
+        res.status(400).send({ message: "Bu kullanıcı adı zaten kullanımda." });
       } else {
         password = crypto.createHash("md5").update(req.body.password).digest("hex");
         await db
@@ -106,16 +106,32 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
       res.status(400).send({ message: "Kullanıcı adı veya şifre boş olamaz!" });
     } else {
       let cursor = await db.table("users").get(userId).run(req.app._rdbConn);
-      if (user !== cursor.userName){
+      if (user !== cursor.userName) {
         res.status(400).send({ message: "Başka bir kullanıcıyı güncelleyemezsiniz!" });
-      }
-      if (cursor.userName !== username) {
-        let result = await db.table("users").filter(r.row("userName").eq(username)).count().eq(1).run(req.app._rdbConn);
-        if (result) {
-          res.status(400).send({ message: "Bu userName zaten kullanımda." });
+      } else {
+        if (cursor.userName !== username) {
+          let result = await db.table("users").filter(r.row("userName").eq(username)).count().eq(1).run(req.app._rdbConn);
+          if (result) {
+            res.status(400).send({ message: "Bu kullanıcı adı zaten kullanımda." });
+          } else {
+            password = crypto.createHash("md5").update(req.body.password).digest("hex");
+            let cursor = await db
+              .table("users")
+              .get(userId)
+              .update({ ...req.body, password: password })
+              .run(req.app._rdbConn);
+            res.status(200).send({ message: "Kullanıcı güncellendi" });
+            let timeStamp = Date.now();
+            let date = new Date(timeStamp);
+            let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
+            await db
+              .table("logs")
+              .insert({ userName: user, log: cursor.userName + " kullanıcısı güncellendi!", timeStamp: timeStamp, date: dateString })
+              .run(req.app._rdbConn);
+          }
         } else {
           password = crypto.createHash("md5").update(req.body.password).digest("hex");
-          let cursor = await db
+          await db
             .table("users")
             .get(userId)
             .update({ ...req.body, password: password })
@@ -126,24 +142,9 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
           let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
-            .insert({ userName: user, log: cursor.userName + " kullanıcısı güncellendi!", timeStamp: timeStamp, date: dateString })
+            .insert({ userName: user, log: username + " kullancısı güncellendi!", timeStamp: timeStamp, date: dateString })
             .run(req.app._rdbConn);
         }
-      } else {
-        password = crypto.createHash("md5").update(req.body.password).digest("hex");
-        await db
-          .table("users")
-          .get(userId)
-          .update({ ...req.body, password: password })
-          .run(req.app._rdbConn);
-        res.status(200).send({ message: "Kullanıcı güncellendi" });
-        let timeStamp = Date.now();
-        let date = new Date(timeStamp);
-        let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
-        await db
-          .table("logs")
-          .insert({ userName: user, log: username + " kullancısı güncellendi!", timeStamp: timeStamp, date: dateString })
-          .run(req.app._rdbConn);
       }
     }
   } catch (error) {
@@ -156,15 +157,20 @@ router.delete("/users/:userId", checkAuth, async (req, res) => {
   try {
     var userId = req.params.userId;
     let user = req.userData.userName;
-    let cursor = await db.table("users").get(userId).delete({ returnChanges: true }).run(req.app._rdbConn);
-    res.status(200).send({ message: "Kullanıcı silindi" });
-    let timeStamp = Date.now();
-    let date = new Date(timeStamp);
-    let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
-    await db
-      .table("logs")
-      .insert({ userName: user, log: cursor.changes[0]["old_val"].userName + " kullanıcısı silindi!", timeStamp: timeStamp, date: dateString })
-      .run(req.app._rdbConn);
+    let dbUser = await db.table("users").get(userId).run(req.app._rdbConn);
+    if (dbUser.name !== user) {
+      res.status(400).send({ message: "Başka bir kullanıcıyı silemezsiniz!" });
+    } else {
+      let cursor = await db.table("users").get(userId).delete({ returnChanges: true }).run(req.app._rdbConn);
+      res.status(200).send({ message: "Kullanıcı silindi" });
+      let timeStamp = Date.now();
+      let date = new Date(timeStamp);
+      let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
+      await db
+        .table("logs")
+        .insert({ userName: user, log: cursor.changes[0]["old_val"].userName + " kullanıcısı silindi!", timeStamp: timeStamp, date: dateString })
+        .run(req.app._rdbConn);
+    }
   } catch (error) {
     print(error);
     res.status(400).send({ message: "Kullanıcı silme başarısız." });
