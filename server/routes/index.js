@@ -10,7 +10,7 @@ var router = express.Router();
 
 dotenv.config();
 const secret_key = process.env.SECRET_KEY;
-
+const timeZoneOffset = 3 * 60 * 60 * 1000;
 const db = r.db("moya");
 
 router.post("/users/authenticate", async (req, res) => {
@@ -71,7 +71,7 @@ router.post("/users/register", checkAuth, async (req, res) => {
           .run(req.app._rdbConn);
         res.status(200).send({ message: "Kullanıcı başarıyla oluşturuldu." });
         let timeStamp = Date.now();
-        let date = new Date(timeStamp);
+        let date = new Date(timeStamp+timeZoneOffset);
         let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
         await db
           .table("logs")
@@ -122,7 +122,7 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
               .run(req.app._rdbConn);
             res.status(200).send({ message: "Kullanıcı güncellendi" });
             let timeStamp = Date.now();
-            let date = new Date(timeStamp);
+            let date = new Date(timeStamp+timeZoneOffset);
             let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
             await db
               .table("logs")
@@ -138,7 +138,7 @@ router.put("/users/:userId", checkAuth, async (req, res) => {
             .run(req.app._rdbConn);
           res.status(200).send({ message: "Kullanıcı güncellendi" });
           let timeStamp = Date.now();
-          let date = new Date(timeStamp);
+          let date = new Date(timeStamp+timeZoneOffset);
           let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
@@ -164,7 +164,7 @@ router.delete("/users/:userId", checkAuth, async (req, res) => {
       let cursor = await db.table("users").get(userId).delete({ returnChanges: true }).run(req.app._rdbConn);
       res.status(200).send({ message: "Kullanıcı silindi" });
       let timeStamp = Date.now();
-      let date = new Date(timeStamp);
+      let date = new Date(timeStamp+timeZoneOffset);
       let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
       await db
         .table("logs")

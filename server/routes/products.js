@@ -10,6 +10,7 @@ dotenv.config();
 const api = process.env.API;
 const domain = process.env.DOMAIN;
 
+const timeZoneOffset = 3 * 60 * 60 * 1000;
 const db = r.db("moya");
 
 let actionsConstants = {
@@ -62,7 +63,7 @@ router.post("/", checkAuth, async (req, res) => {
     } else {
       let changes = await db.table("products").insert(req.body, { returnChanges: true }).run(req.app._rdbConn);
       let timeStamp = Date.now();
-      let date = new Date(timeStamp);
+      let date = new Date(timeStamp+timeZoneOffset);
       let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
       await db
         .table("stock_logs")
@@ -120,7 +121,7 @@ router.put("/:productId", checkAuth, async (req, res) => {
             sendEmail(`${cursor.name} isimli ürün belirlenen limitin altında. Güncel stok: ${newStock}`);
           }
           let timeStamp = Date.now();
-          let date = new Date(timeStamp);
+          let date = new Date(timeStamp+timeZoneOffset);
           let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
           await db
             .table("logs")
@@ -134,7 +135,7 @@ router.put("/:productId", checkAuth, async (req, res) => {
           sendEmail(`${cursor.name} isimli ürün belirlenen limitin altında. Güncel stok: ${newStock}`);
         }
         let timeStamp = Date.now();
-        let date = new Date(timeStamp);
+        let date = new Date(timeStamp+timeZoneOffset);
         let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
         await db
           .table("logs")
@@ -155,7 +156,7 @@ router.delete("/:productId", checkAuth, async (req, res) => {
     let cursor = await db.table("products").get(productId).delete({ returnChanges: true }).run(req.app._rdbConn);
     res.status(200).send({ message: "Ürün silindi" });
     let timeStamp = Date.now();
-    let date = new Date(timeStamp);
+    let date = new Date(timeStamp+timeZoneOffset);
     let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     await db
       .table("logs")
@@ -174,7 +175,7 @@ router.post("/package", checkAuth, async (req, res) => {
     let amount = req.body.amount;
     let stock = 0;
     let timeStamp = Date.now();
-    let date = new Date(timeStamp);
+    let date = new Date(timeStamp+timeZoneOffset);
     let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     let result = await db.table("products").get(productId).run(req.app._rdbConn);
     stock = parseInt(result.stock) + parseInt(amount);
@@ -221,7 +222,7 @@ router.post("/package", checkAuth, async (req, res) => {
 router.post("/stocks", checkAuth, async (req, res) => {
   try {
     let timeStamp = Date.now();
-    let date = new Date(timeStamp);
+    let date = new Date(timeStamp+timeZoneOffset);
     let dateString = date.toLocaleDateString("tr-TR") + " " + date.toLocaleTimeString("tr-TR");
     let log = {
       ...req.body,
