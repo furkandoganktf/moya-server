@@ -29,12 +29,12 @@ let sendEmail = (message) => {
   exec(
     `curl -s --user 'api:${api}' ${domain} \
   -F from='mailgun@mg.moyaoto.com.tr' \
-  -F to='metin@feynlab.com.tr' \
-  -F to='burak@matrixmc.com.tr' \
-  -F to='sezer@matrixmc.com.tr' \
-  -F to='oiyigungor@filmandfoil.com.tr' \
-  -F to='muhasebe@filmamdfoil.com.tr' \
-  -F to='miyigungor@filmandfoil.com.tr' \
+  -F to='burak@moyaoto.com' \
+  -F to='metin@moyaoto.com' \
+  -F to='alperen@moyaoto.com' \
+  -F to='mine@moyaoto.com' \
+  -F to='oya@moyaoto.com' \
+  -F to='sezer@moyaoto.com' \
   -F subject='Stok Limiti' \
   -F text='${message}'`,
     (error, stdout, stderr) => {
